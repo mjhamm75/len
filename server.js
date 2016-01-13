@@ -11,6 +11,10 @@ app.use(webpackDevMiddleware(compiler, { noInfo: true, publicPath: config.output
 app.use(webpackHotMiddleware(compiler));
 app.use(bodyParser.json());
 
+app.get('*', (req, res) => {
+    res.sendFile(__dirname + '/index.html');
+});
+
 app.listen(PORT, error => {
   if (error) {
     console.error(error);
