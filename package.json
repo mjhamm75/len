@@ -18,8 +18,10 @@
     "babel-register": "^6.3.13",
     "body-parser": "^1.14.2",
     "express": "^4.13.3",
+    "history": "^1.17.0",
     "react": "^0.14.6",
     "react-dom": "^0.14.6",
+    "react-router": "^1.0.3",
     "webpack": "^1.12.11",
     "webpack-dev-middleware": "^1.4.0",
     "webpack-hot-middleware": "^2.6.0"
