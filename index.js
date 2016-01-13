@@ -2,23 +2,9 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Router, Route, browserHistory } from 'react-router';
 
-class App extends React.Component {
-  render() {
-    return <p>{this.props.children}</p>;
-  }
-}
-
-class One extends React.Component {
-  render() {
-    return <p>One</p>;
-  }
-}
-
-class Two extends React.Component {
-  render() {
-    return <p>Two</p>;
-  }
-}
+import App from './containers/app';
+import One from './components/One';
+import Two from './components/Two';
 
 let router = (
 	<Router history={browserHistory}>
