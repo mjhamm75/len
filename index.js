@@ -5,7 +5,7 @@ import {Provider} from 'react-redux';
 import {Router, Route} from 'react-router';
 import createBrowserHistory from 'history/lib/createBrowserHistory';
 import {syncReduxAndRouter, routeReducer} from 'redux-simple-router';
-
+import getRoutes from './routes.js';
 import reducers from './reducers';
 
 // // Redux DevTools store enhancers
@@ -31,22 +31,11 @@ const history = createBrowserHistory();
 
 syncReduxAndRouter(history, store);
 
-import App from './containers/App';
-import One from './components/One';
-import Two from './components/Two';
-
-let routes = (
-	<Route path="/" component={App}>
-		<Route path="step1" component={One} />
-		<Route path="step2" component={Two} />
-	</Route>
-)
-
 ReactDOM.render(
   <div>
     <Provider store={store}>
       <Router history={history}>
-        {routes}
+        {getRoutes()}
       </Router>
     </Provider>
   </div>,
