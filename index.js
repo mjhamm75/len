@@ -9,7 +9,7 @@ import getRoutes from './routes.js';
 import reducers from './reducers';
 
 // // Redux DevTools store enhancers
-// import {devTools, persistState} from 'redux-devtools';
+import {devTools, persistState} from 'redux-devtools';
 // React components for Redux DevTools
 // import {DevTools, DebugPanel, LogMonitor} from 'redux-devtools/lib/react';
 
