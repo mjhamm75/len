@@ -8,10 +8,7 @@ import {syncReduxAndRouter, routeReducer} from 'redux-simple-router';
 import getRoutes from './routes.js';
 import reducers from './reducers';
 
-// // Redux DevTools store enhancers
-import {devTools, persistState} from 'redux-devtools';
-// React components for Redux DevTools
-// import {DevTools, DebugPanel, LogMonitor} from 'redux-devtools/lib/react';
+import { createDevTools } from './devtools';
 
 const reducer = combineReducers(Object.assign({}, reducers, {
   routing: routeReducer
@@ -35,7 +32,8 @@ ReactDOM.render(
   <div>
     <Provider store={store}>
       <Router history={history}>
-        {getRoutes()}
+        { getRoutes() }
+        { createDevTools }
       </Router>
     </Provider>
   </div>,
