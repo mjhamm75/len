@@ -16,6 +16,5 @@ export default function configureStore(initialState) {
   const store = createStoreWithMiddleware(createStore)(
     rootReducer, initialState
   )
-
   return store;
 }
