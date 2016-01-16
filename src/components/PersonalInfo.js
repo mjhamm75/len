@@ -18,12 +18,18 @@ class PersonalInfo extends Component {
   render() {
     return (
       <div>
+        <h2>Personal Info</h2>
         <FormField updateValue={this.updateValue} title="Name" name="name" type="text"/>
         <FormField updateValue={this.updateValue} title="Social Security Number" name="ssn" type="text"/>
         <FormField updateValue={this.updateValue} title="Date of Birth" name="dob" type="text"/>
         <FormField updateValue={this.updateValue} title="Home Phone" name="hphone" type="text"/>
         <FormField updateValue={this.updateValue} title="Work Phone" name="wphone" type="text"/>
-        <FormField updateValue={this.updateValue} title="Cell Phone" name="cphone" type="text"/>                      
+        <FormField updateValue={this.updateValue} title="Cell Phone" name="cphone" type="text"/>
+        <FormField updateValue={this.updateValue} title="Street 1" name="street1" type="text"/>
+        <FormField updateValue={this.updateValue} title="Street 2" name="street2" type="text"/>
+        <FormField updateValue={this.updateValue} title="City" name="city" type="text"/>
+        <FormField updateValue={this.updateValue} title="State" name="state" type="text"/>
+        <FormField updateValue={this.updateValue} title="Zipcode" name="zip" type="text"/>
       </div>
     )
   }
