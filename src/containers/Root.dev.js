@@ -19,6 +19,7 @@ export default class Root extends Component {
       <Provider store={store}>
         <Router history={history}>
           <Route path="/" component={CounterApp}>
+            
           </Route>
         </Router>
       </Provider>
