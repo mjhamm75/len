@@ -1,16 +1,15 @@
 import React from 'react';
 import { Provider } from 'react-redux';
 import { render } from 'react-dom';
-import { createHistory } from 'history';
+import { browserHistory } from 'react-router';
 import configureStore from './store/configureStore';
 import Root from './containers/Root';
 
-const history = createHistory();
 const store = configureStore();
 
 render(
 	<Provider store={store} >
-		<Root history={history} />
+		<Root history={browserHistory} />
 	</Provider>,
   document.getElementById('root')
 );
