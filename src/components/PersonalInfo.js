@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { updatePersonalInfo } from './../actions/CounterActions';
 import FormField from './FormField';
+var fields = require('./mock.fields.js');
 
 class PersonalInfo extends Component {
   constructor() {
@@ -15,21 +16,18 @@ class PersonalInfo extends Component {
     this.props.dispatch(updatePersonalInfo(key, val));
   }
 
+  renderFields() {
+    return fields.map(field => {
+      return <FormField title={field.title} name={field.name} type={field.type} />
+    });
+  }
+
   render() {
+    let fieldsDOM = this.renderFields();
     return (
       <div>
         <h2>Personal Info</h2>
-        <FormField updateValue={this.updateValue} title="Name" name="name" type="text"/>
-        <FormField updateValue={this.updateValue} title="Social Security Number" name="ssn" type="text"/>
-        <FormField updateValue={this.updateValue} title="Date of Birth" name="dob" type="text"/>
-        <FormField updateValue={this.updateValue} title="Home Phone" name="hphone" type="text"/>
-        <FormField updateValue={this.updateValue} title="Work Phone" name="wphone" type="text"/>
-        <FormField updateValue={this.updateValue} title="Cell Phone" name="cphone" type="text"/>
-        <FormField updateValue={this.updateValue} title="Street 1" name="street1" type="text"/>
-        <FormField updateValue={this.updateValue} title="Street 2" name="street2" type="text"/>
-        <FormField updateValue={this.updateValue} title="City" name="city" type="text"/>
-        <FormField updateValue={this.updateValue} title="State" name="state" type="text"/>
-        <FormField updateValue={this.updateValue} title="Zipcode" name="zip" type="text"/>
+        {fieldsDOM}
       </div>
     )
   }
