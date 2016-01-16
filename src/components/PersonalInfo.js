@@ -18,7 +18,7 @@ class PersonalInfo extends Component {
 
   renderFields() {
     return fields.map(field => {
-      return <FormField title={field.title} name={field.name} type={field.type} />
+      return <FormField title={field.title} name={field.name} type={field.type} updateValue={this.updateValue} />
     });
   }
 
