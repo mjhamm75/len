@@ -8,6 +8,7 @@ class PersonalInfo extends Component {
   constructor() {
     super();
     this.updateValue = this.updateValue.bind(this);
+    this.saveAndContinue = this.saveAndContinue.bind(this);
   }
 
   updateValue(value) {
@@ -16,9 +17,14 @@ class PersonalInfo extends Component {
     this.props.dispatch(updatePersonalInfo(key, val));
   }
 
+  saveAndContinue() {
+
+  }
+
   renderFields() {
     return fields.map(field => {
-      return <FormField title={field.title} name={field.name} type={field.type} updateValue={this.updateValue} />
+      return field.title ? <FormField title={field.title} name={field.name} type={field.type} updateValue={this.updateValue} /> :
+                  <h4>{field.header}</h4>
     });
   }
 
@@ -28,6 +34,7 @@ class PersonalInfo extends Component {
       <div>
         <h2>Personal Info</h2>
         {fieldsDOM}
+        <button onClick={this.saveAndContinue}>Save and Continue</button>
       </div>
     )
   }

@@ -15,6 +15,9 @@ module.exports = [
         type: 'text'
       },
       {
+        header: 'Contact Info'
+      },
+      {
         title: 'Home Phone',
         name: 'hphone',
         type: 'text'
@@ -28,6 +31,14 @@ module.exports = [
         title: 'Cell Phone',
         name: 'cphone',
         type: 'text'
+      },
+      {
+        title: 'Email',
+        name: 'email',
+        type: 'text'
+      },
+      {
+        header: 'Address Info'
       },
       {
         title: 'Street 1',
