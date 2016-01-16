@@ -1,4 +1,4 @@
-import { INCREMENT_COUNTER, DECREMENT_COUNTER } from '../constants/ActionTypes';
+import { INCREMENT_COUNTER, DECREMENT_COUNTER, UPDATE_PERSONAL_INFO } from '../constants/ActionTypes';
 
 export function increment() {
   return {
@@ -30,4 +30,12 @@ export function incrementAsync() {
       dispatch(increment());
     }, 1000);
   };
+}
+
+export function updatePersonalInfo(key, value) {
+  return {
+    type: UPDATE_PERSONAL_INFO,
+    key,
+    value
+  }
 }
