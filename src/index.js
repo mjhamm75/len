@@ -1,6 +1,6 @@
 import React from 'react';
-import { Provider } from 'react-redux';
 import { render } from 'react-dom';
+import { Provider } from 'react-redux';
 import { browserHistory } from 'react-router';
 import configureStore from './store/configureStore';
 import Root from './containers/Root';
