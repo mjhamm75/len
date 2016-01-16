@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 
 class App extends Component {
 	render() {
-		return <h1>Jason</h1>
+		return <div>{this.props.children}</div>
 	}
 }
 
