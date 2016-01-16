@@ -22,9 +22,9 @@ class PersonalInfo extends Component {
   }
 
   renderFields() {
-    return fields.map(field => {
-      return field.title ? <FormField title={field.title} name={field.name} type={field.type} updateValue={this.updateValue} /> :
-                  <h4>{field.header}</h4>
+    return fields.map((field, i) => {
+      return field.title ? <FormField key={i} title={field.title} name={field.name} type={field.type} updateValue={this.updateValue} /> :
+                  <h4 key={i} >{field.header}</h4>
     });
   }
 
