@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { updatePersonalInfo } from './../actions/CounterActions';
 import FormField from './FormField';
+import { routeActions } from 'redux-simple-router'
 var fields = require('./mock.fields.js');
 
 class PersonalInfo extends Component {
@@ -18,7 +19,7 @@ class PersonalInfo extends Component {
   }
 
   saveAndContinue() {
-
+    this.props.dispatch(routeActions.push('/step2'));
   }
 
   renderFields() {

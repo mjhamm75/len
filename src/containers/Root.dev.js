@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Router, Route } from 'react-router';
 import App from './App';
 import PersonalInfo from './../components/PersonalInfo';
+import SpouseInfo from './../components/SpouseInfo';
 
 export default class Root extends Component {
   render() {
@@ -10,6 +11,7 @@ export default class Root extends Component {
       <Router history={history}>
         <Route path="/" component={App}>
           <Route path="step1" component={PersonalInfo} />
+          <Route path="step2" component={SpouseInfo} />
         </Route>
       </Router>
     );
