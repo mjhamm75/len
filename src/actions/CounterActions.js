@@ -1,4 +1,4 @@
-import { INCREMENT_COUNTER, DECREMENT_COUNTER, UPDATE_PERSONAL_INFO } from '../constants/ActionTypes';
+import { INCREMENT_COUNTER, DECREMENT_COUNTER, UPDATE_PERSONAL_INFO, UPDATE_SPOUSE_INFO } from '../constants/ActionTypes';
 
 export function increment() {
   return {
@@ -35,6 +35,14 @@ export function incrementAsync() {
 export function updatePersonalInfo(key, value) {
   return {
     type: UPDATE_PERSONAL_INFO,
+    key,
+    value
+  }
+}
+
+export function updateSpouseInfo(key, value) {
+  return {
+    type: UPDATE_SPOUSE_INFO,
     key,
     value
   }
