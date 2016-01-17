@@ -47,3 +47,11 @@ export function updateSpouseInfo(key, value) {
     value
   }
 }
+
+export function updateSpouseInfo(key, value) {
+  return {
+    type: UPDATE_SPOUSE_INFO,
+    key,
+    value
+  }
+}
