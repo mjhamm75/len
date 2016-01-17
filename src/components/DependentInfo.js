@@ -14,7 +14,12 @@ export default class DependentInfo extends Component {
 			<div>
 				<h2>Dependent Info</h2>
 				{dependentsDOM}
+				<button onClick={this.saveAndContinue}>Save and Continue</button>
 			</div>
 		)
 	}
+
+	 saveAndContinue() {
+    	this.props.dispatch(routeActions.push('/step3'));
+  	}
 }
