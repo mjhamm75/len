@@ -42,7 +42,6 @@ class PersonalInfo extends Component {
 
 function mapStateToProps(state) {
   let personalInfo = state.personalInfo;
-  console.log(personalInfo);
   return {
     personalInfo
   }
