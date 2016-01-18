@@ -24,15 +24,16 @@ class PersonalInfo extends Component {
 
   renderFields() {
     return fields.map((field, i) => {
-      return field.title ? <FormField key={i} title={field.title} name={field.name} type={field.type} updateValue={this.updateValue} /> :
-                  <h4 key={i} >{field.header}</h4>
+      return field.title ? 
+              <FormField key={i} title={field.title} name={field.name} type={field.type} updateValue={this.updateValue} /> :
+              <h4 key={i} >{field.header}</h4>
     });
   }
 
   render() {
     let fieldsDOM = this.renderFields();
     return (
-      <div>
+      <div>                
         <h2>Personal Info</h2>
         {fieldsDOM}
         <button onClick={this.saveAndContinue}>Save and Continue</button>
