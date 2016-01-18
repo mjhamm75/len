@@ -18,19 +18,23 @@ module.exports = [
         header: 'Contact Info'
       },
       {
-        title: 'Home Phone',
-        name: 'hphone',
-        type: 'text'
-      },
-      {
-        title: 'Work Phone',
-        name: 'wphone',
-        type: 'text'
-      },
-      {
-        title: 'Cell Phone',
-        name: 'cphone',
-        type: 'text'
+        list: [
+          {
+            title: 'Home Phone',
+            name: 'hphone',
+            type: 'text' 
+          },
+          {
+            title: 'Work Phone',
+            name: 'wphone',
+            type: 'text'
+          },
+          {
+            title: 'Cell Phone',
+            name: 'cphone',
+            type: 'text'
+          },
+        ]
       },
       {
         title: 'Email',
