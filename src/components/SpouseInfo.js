@@ -23,7 +23,7 @@ class SpouseInfo extends Component {
   }
 
   renderFields() {
-    return fields.map((field, i) => {
+    return fields.name.map((field, i) => {
       return field.title ? <FormField key={i} title={field.title} name={field.name} type={field.type} updateValue={this.updateValue} /> :
                   <h4 key={i} >{field.header}</h4>
     });

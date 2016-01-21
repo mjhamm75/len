@@ -15,14 +15,18 @@ class PersonalInfo extends Component {
     this.saveAndContinue = this.saveAndContinue.bind(this);
   }
 
-  updateValue(value) {
-    let key = value.target.name;
-    let val = value.target.value;
+  updateValue(event) {
+    let key = event.target.name;
+    let val = event.target.value;
     this.props.dispatch(updatePersonalInfo(key, val));
   }
 
   saveAndContinue() {
-    this.props.dispatch(routeActions.push('/step2'));
+    if(this.props.personalInfo.marriage === 'married') {
+      this.props.dispatch(routeActions.push('/step2'));
+    } else {
+      this.props.dispatch(routeActions.push('/step3'));
+    }
   }
 
   renderFields(fields) {
@@ -46,6 +50,13 @@ class PersonalInfo extends Component {
         <h4>Contact Info</h4>
           <Select options={fields.phones} title="Add Phone" updateValue={this.updateValue}/>
           <Select options={fields.email} title="Add Email" updateValue={this.updateValue}/>
+          <div>
+            <input onClick={this.updateValue} name="marriage" type="radio" value="single"/>Single
+            <input onClick={this.updateValue} name="marriage" type="radio" value="married"/>Married
+            <input onClick={this.updateValue} name="marriage" type="radio" value="widowed"/>Widowed
+            <input onClick={this.updateValue} name="marriage" type="radio" value="divorced"/>Divorced
+            <input onClick={this.updateValue} name="marriage" type="radio" value="separated"/>Separated
+          </div>
         <h4>Address Info</h4>
         {addressDOM}
         <button onClick={this.saveAndContinue}>Save and Continue</button>

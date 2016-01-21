@@ -40,7 +40,7 @@ class Select extends Component {
 			</select>
 		) : null;
 		let button = this.state.options.length > 0 ? <button onClick={() => this.setState({showSelect : true})}>{this.props.title}</button> : null;
-		let fields = this.state.fields.map((field, i) => <FormField key={i} title={field.title} name={field.name} type={field.type} />);
+		let fields = this.state.fields.map((field, i) => <FormField key={i} title={field.title} name={field.name} type={field.type} updateValue={this.props.updateValue}/>);
 		return (
 			<div>
 				{button}

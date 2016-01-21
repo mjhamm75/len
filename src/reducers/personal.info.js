@@ -2,13 +2,13 @@ let defaultState = {
 	name: null,
 	ssn: null,
 	dob: null,
-	phones: [],
 	email: null,
 	street1: null,
 	street2: null,
 	city: null,
 	state: null,
-	zipcode: null
+	zipcode: null,
+	married: null
 }
 
 export default function personalInfo(state = defaultState, action) {
