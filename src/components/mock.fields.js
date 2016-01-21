@@ -34,6 +34,14 @@ let phones = [
   }
 ];
 
+let email = [
+  {
+    title: 'Email',
+    name: 'email',
+    type: 'text' 
+  }
+];
+
 let address = [
   {
     title: 'Street 1',
@@ -65,5 +73,6 @@ let address = [
 module.exports = {
   name,
   phones, 
-  address
+  address,
+  email
 }

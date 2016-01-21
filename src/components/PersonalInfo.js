@@ -4,6 +4,8 @@ import { updatePersonalInfo } from './../actions/CounterActions';
 import FormField from './FormField';
 import ListFormField from './ListFormField';
 import { routeActions } from 'redux-simple-router'
+import Select from './Select';
+
 var fields = require('./mock.fields.js');
 
 class PersonalInfo extends Component {
@@ -27,8 +29,6 @@ class PersonalInfo extends Component {
     return fields.map((field, i) => {
       if(field.title) {
         return <FormField key={i} title={field.title} name={field.name} type={field.type} updateValue={this.updateValue} />; 
-      } else if (field.list) {
-        return <ListFormField key={i} list={field.list}></ListFormField>;
       } else {
         return <h4 key={i} >{field.header}</h4>;
       }
@@ -37,14 +37,15 @@ class PersonalInfo extends Component {
 
   render() {
     let nameDOM = this.renderFields(fields.name);
-    let phonesDOM = this.renderFields(fields.phones);
     let addressDOM = this.renderFields(fields.address);
+    
     return (
       <div>                
         <h2>Personal Info</h2>
         {nameDOM}
         <h4>Contact Info</h4>
-        {phonesDOM}
+          <Select options={fields.phones} title="Add Phone" updateValue={this.updateValue}/>
+          <Select options={fields.email} title="Add Email" updateValue={this.updateValue}/>
         <h4>Address Info</h4>
         {addressDOM}
         <button onClick={this.saveAndContinue}>Save and Continue</button>
