@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { updateDependentInfo } from './../actions/CounterActions';
 import { connect } from 'react-redux';
+import { routeActions } from 'redux-simple-router'
 import DependentFormField from './DependentFormField';
 
 class DependentInfo extends Component {
@@ -11,6 +12,7 @@ class DependentInfo extends Component {
 		}
 		this.addDependent = this.addDependent.bind(this);
 		this.updateDependent = this.updateDependent.bind(this);
+		this.saveAndContinue = this.saveAndContinue.bind(this);
 	}
 
 	addDependent() {
