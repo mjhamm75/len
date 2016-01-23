@@ -1,13 +1,16 @@
 import React, { Component } from 'react';
+import { updateDependentInfo } from './../actions/CounterActions';
+import { connect } from 'react-redux';
 import DependentFormField from './DependentFormField';
 
-export default class DependentInfo extends Component {
+class DependentInfo extends Component {
 	constructor() {
 		super();
 		this.state = {
 			dependents: []
 		}
 		this.addDependent = this.addDependent.bind(this);
+		this.updateDependent = this.updateDependent.bind(this);
 	}
 
 	addDependent() {
@@ -17,9 +20,18 @@ export default class DependentInfo extends Component {
 		})
 	}
 
+	updateDependent(name, age, relationship, index) {
+		let dependent = {
+			name,
+			age,
+			relationship
+		}
+		this.props.dispatch(updateDependentInfo(index, dependent));
+	}
+
 	renderDependents(count) {
 		return count.map((dependent, i) => {
-			return <DependentFormField key={i} index={i}/>
+			return <DependentFormField key={i} index={i} updateDependent={this.updateDependent}/>
 		});
 	}
 
@@ -40,3 +52,14 @@ export default class DependentInfo extends Component {
     	this.props.dispatch(routeActions.push('/step3'));
   	}
 }
+
+function mapStateToProps(state) {
+  let personalInfo = state.personalInfo;
+  return {
+    personalInfo
+  }
+}
+
+export default connect(
+  mapStateToProps
+)(DependentInfo);
