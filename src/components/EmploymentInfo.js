@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { updateEmploymentInfo } from './../actions/CounterActions';
 import EmployerFormField from './EmployerFormField';
 
 class EmploymentInfo extends Component {
@@ -10,6 +11,7 @@ class EmploymentInfo extends Component {
 			spouseEmployers: []
 		}
 		this.addEmployer = this.addEmployer.bind(this);
+		this.updateEmployer = this.updateEmployer.bind(this);
 	}
 
 	render() {
@@ -31,7 +33,7 @@ class EmploymentInfo extends Component {
 	renderEmployer(type) {
 		return this.state[type].map((employer, i) => {
 			return (
-				<EmployerFormField index={i} />
+				<EmployerFormField key={i} index={i} updateEmployer={this.updateEmployer} type={type}/>
 			)			
 		});
 	}
@@ -60,6 +62,15 @@ class EmploymentInfo extends Component {
 				spouseEmployers: this.state[type]
 			});
 		}
+	}
+
+	updateEmployer(name, wage, period, type, index) {
+		let employer = {
+			name,
+			wage,
+			period
+		}
+		this.props.dispatch(updateEmploymentInfo(type, index, employer));
 	}
 }
 
