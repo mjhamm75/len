@@ -8,7 +8,7 @@ let defaultState = {
 	city: null,
 	state: null,
 	zipcode: null,
-	married: null
+	marriage: null
 }
 
 export default function personalInfo(state = defaultState, action) {

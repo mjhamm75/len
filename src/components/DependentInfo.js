@@ -51,7 +51,7 @@ class DependentInfo extends Component {
 	}
 
 	 saveAndContinue() {
-    	this.props.dispatch(routeActions.push('/step3'));
+    	this.props.dispatch(routeActions.push('/step4'));
   	}
 }
 
