@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { updateEmploymentInfo } from './../actions/CounterActions';
+import { routeActions } from 'redux-simple-router';
 import EmployerFormField from './EmployerFormField';
 
 class EmploymentInfo extends Component {
@@ -12,6 +13,7 @@ class EmploymentInfo extends Component {
 		}
 		this.addEmployer = this.addEmployer.bind(this);
 		this.updateEmployer = this.updateEmployer.bind(this);
+		this.saveAndContinue = this.saveAndContinue.bind(this);
 	}
 
 	render() {
@@ -20,12 +22,12 @@ class EmploymentInfo extends Component {
 		let employerDOM = this.renderEmployer('employers');
 		return (
 			<div>
-				<h2>Employement Info</h2>
+				<h2>Employment Info</h2>
 				<button onClick={() => this.addEmployer('employers')}>Add Employer</button>
 				{employerDOM}		
 				{marriedDOM}
 				<br />
-				<button>Save and Continue</button>
+				<button onClick={this.saveAndContinue}>Save and Continue</button>
 			</div>
 		)
 	}
@@ -71,6 +73,10 @@ class EmploymentInfo extends Component {
 			period
 		}
 		this.props.dispatch(updateEmploymentInfo(type, index, employer));
+	}
+
+	saveAndContinue() {
+		this.props.dispatch(routeActions.push('/step5'))
 	}
 }
 
