@@ -65,7 +65,7 @@ let address = [
   },
   {
     title: 'Zipcode',
-    name: 'zip',
+    name: 'zipcode',
     type: 'text'
   }
 ]
