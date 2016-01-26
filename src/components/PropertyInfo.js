@@ -8,6 +8,7 @@ class PropertyInfo extends Component {
 			properties: []
 		};
 		this.addProperty = this.addProperty.bind(this);
+		this.updateProperty = this.updateProperty.bind(this);
 	}
 
 	addProperty() {
@@ -31,8 +32,12 @@ class PropertyInfo extends Component {
 
 	renderProperties(properties) {
 		return properties.map((property, i) => {
-			return <PropertyFormField key={i} index={i}/>
+			return <PropertyFormField key={i} index={i} updateProperty={this.updateProperty}/>
 		});
+	}
+
+	updateProperty() {
+		debugger;
 	}
 }
 

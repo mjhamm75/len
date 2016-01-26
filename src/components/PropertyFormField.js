@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { debounce } from './../utils';
 
 class PropertyFormField extends Component {
 	constructor() {
@@ -7,6 +8,8 @@ class PropertyFormField extends Component {
 			mortgages: []
 		}
 		this.updateMortgages = this.updateMortgages.bind(this);
+		this.updateProperty = this.updateProperty.bind(this);
+		this.updateProperty = debounce(this.updateProperty, 250);
 	}
 
 	createArray(count) {
@@ -31,10 +34,10 @@ class PropertyFormField extends Component {
 				<h4>Property {this.props.index + 1}</h4>
 				<form>
 					<label>Property Address</label>
-					<input ref="address" />
+					<input ref="address" onChange={this.updateProperty}/>
 					<br />
 					<label>Current Value</label>
-					<input ref="currentValue" />
+					<input ref="currentValue" onChange={this.updateProperty}/>
 					<br />
 					<label>Number of Mortgages</label>
 					<select onChange={this.updateMortgages}>
@@ -56,16 +59,29 @@ class PropertyFormField extends Component {
 				<div>
 					<h5>Lender {i + 1}</h5>
 					<label>Lender</label>
-					<input ref="lender"/>
+					<input ref="lender" onChange={this.updateMortgage}/>
 					<br />
 					<label>Mortgage</label>
-					<input ref="amount" />
+					<input ref="amount" onChange={this.updateMortgage}/>
 					<br />
 					<label>Monthly Payment</label>
-					<input ref="monthly" />
+					<input ref="monthly" onChange={this.updateMortgage}/>
 				</div>
 			)
 		});
+	}
+
+	updateProperty() {
+		let property = {
+			address: this.refs.address.value,
+			currentValue: this.refs.currentValue.value,
+			mortgages: this.state.mortgages
+		}
+		debugger;
+	}
+
+	updateMortgage() {
+		debugger;
 	}
 }
 
