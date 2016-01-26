@@ -30,9 +30,10 @@ class PersonalInfo extends Component {
   }
 
   renderFields(fields) {
+    let that = this;
     return fields.map((field, i) => {
       if(field.title) {
-        return <FormField key={i} title={field.title} name={field.name} type={field.type} updateValue={this.updateValue} />; 
+        return <FormField key={i} title={field.title} name={field.name} type={field.type} updateValue={this.updateValue} value={that.props.personalInfo[field.name]}/>; 
       } else {
         return <h4 key={i} >{field.header}</h4>;
       }

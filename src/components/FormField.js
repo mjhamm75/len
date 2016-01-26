@@ -11,7 +11,7 @@ export default class FormField extends Component {
 		return (
 			<div>
 				<label>{title}</label>
-				<input onChange={update} type={type} name={name}/>
+				<input onChange={update} type={type} name={name} defaultValue={this.props.value}/>
 			</div>
 		)
 	}
