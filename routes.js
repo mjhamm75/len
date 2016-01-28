@@ -9,5 +9,7 @@ export const routes = (
     <Route path="step1" component={PersonalInfo} />
     <Route path="step2" component={SpouseInfo} />
     <Route path="step3" component={DependentInfo} />
+    <Route path="step4" component={EmploymentInfo} />
+    <Route path="step5" component={PropertyInfo} />
   </Route>
 )
