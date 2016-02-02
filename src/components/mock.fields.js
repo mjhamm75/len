@@ -70,9 +70,38 @@ let address = [
   }
 ]
 
+let spouseAddress = [
+  {
+    title: 'Street 1',
+    name: 'street1',
+    type: 'text'
+  },
+  {
+    title: 'Street 2',
+    name: 'street2',
+    type: 'text'
+  },
+  {
+    title: 'City',
+    name: 'city',
+    type: 'text'
+  },
+  {
+    title: 'State',
+    name: 'state',
+    type: 'text'
+  },
+  {
+    title: 'Zipcode',
+    name: 'zipcode',
+    type: 'text'
+  }
+]
+
 module.exports = {
   name,
   phones, 
   address,
-  email
+  email,
+  spouseAddress
 }

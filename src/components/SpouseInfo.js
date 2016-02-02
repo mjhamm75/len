@@ -10,6 +10,10 @@ class SpouseInfo extends Component {
     super();
     this.updateValue = this.updateValue.bind(this);
     this.saveAndContinue = this.saveAndContinue.bind(this);
+    this.updateSame = this.updateSame.bind(this);
+    this.state = {
+      same: false
+    }
   }
 
   updateValue(value) {
@@ -29,15 +33,34 @@ class SpouseInfo extends Component {
     });
   }
 
+  renderAddress(same) {
+    return fields.spouseAddress.map((field, i) => {
+      return <FormField key={i} title={field.title} name={field.name} disabled={same} />
+    });
+  }
+
   render() {
+    let same = this.state.same;
     let fieldsDOM = this.renderFields();
+    let addressDOM = this.renderAddress(same);
     return (
       <div>
         <h2>Spouse Info</h2>
         {fieldsDOM}
+        <h3>Address</h3>
+        <input ref="same" type="checkbox" onChange={this.updateSame}></input> Same as spouse
+        <br />
+        {addressDOM}
+        <br />
         <button onClick={this.saveAndContinue}>Save and Continue</button>
       </div>
     )
+  }
+
+  updateSame() {
+    this.setState({
+      same: this.refs.same.checked
+    })
   }
 }
 
