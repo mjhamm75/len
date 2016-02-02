@@ -23,9 +23,9 @@ class PersonalInfo extends Component {
 
   saveAndContinue() {
     if(this.props.personalInfo.marriage === 'married') {
-      this.props.dispatch(routeActions.push('/step2'));
+      this.props.dispatch(routeActions.push('/spouse'));
     } else {
-      this.props.dispatch(routeActions.push('/step3'));
+      this.props.dispatch(routeActions.push('/dependents'));
     }
   }
 

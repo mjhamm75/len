@@ -19,7 +19,7 @@ class SpouseInfo extends Component {
   }
 
   saveAndContinue() {
-    this.props.dispatch(routeActions.push('/step3'));
+    this.props.dispatch(routeActions.push('/dependents'));
   }
 
   renderFields() {

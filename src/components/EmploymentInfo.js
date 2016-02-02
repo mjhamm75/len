@@ -76,7 +76,7 @@ class EmploymentInfo extends Component {
 	}
 
 	saveAndContinue() {
-		this.props.dispatch(routeActions.push('/step5'))
+		this.props.dispatch(routeActions.push('/property'))
 	}
 }
 
