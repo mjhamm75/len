@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { updateSpouseInfo } from './../actions/CounterActions';
+import { updateSpouseInfo, syncAddress } from './../actions/CounterActions';
 import FormField from './FormField';
 import { routeActions } from 'redux-simple-router'
 var fields = require('./mock.fields.js');
@@ -11,6 +11,8 @@ class SpouseInfo extends Component {
     this.updateValue = this.updateValue.bind(this);
     this.saveAndContinue = this.saveAndContinue.bind(this);
     this.updateSame = this.updateSame.bind(this);
+    this.mergeAddress = this.mergeAddress.bind(this);
+    this.createAddress = this.createAddress.bind(this);
     this.state = {
       same: false
     }
@@ -61,13 +63,33 @@ class SpouseInfo extends Component {
     this.setState({
       same: this.refs.same.checked
     })
+    if(this.refs.same.checked) {
+      this.mergeAddress();
+    }
+  }
+
+  mergeAddress() {
+    let address = this.createAddress();
+    this.props.dispatch(syncAddress(address));
+  }
+
+  createAddress() {
+    return {
+      street1: this.props.personalInfo.street1,
+      street2: this.props.personalInfo.street2,
+      city: this.props.personalInfo.city,
+      state: this.props.personalInfo.state,
+      zipcode: this.props.personalInfo.zipcode
+    }
   }
 }
 
 function mapStateToProps(state) {
   let spouseInfo = state.spouseInfo;
+  let personalInfo = state.personalInfo
   return {
-    spouseInfo
+    spouseInfo,
+    personalInfo
   }
 }
 

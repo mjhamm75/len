@@ -1,4 +1,4 @@
-import { INCREMENT_COUNTER, DECREMENT_COUNTER, UPDATE_EMPLOYMENT_INFO, UPDATE_PERSONAL_INFO, UPDATE_SPOUSE_INFO, UPDATE_DEPENDENT_INFO } from '../constants/ActionTypes';
+import { INCREMENT_COUNTER, DECREMENT_COUNTER, SYNC_ADDRESS, UPDATE_EMPLOYMENT_INFO, UPDATE_PERSONAL_INFO, UPDATE_SPOUSE_INFO, UPDATE_DEPENDENT_INFO } from '../constants/ActionTypes';
 
 export function increment() {
   return {
@@ -62,5 +62,12 @@ export function updateEmploymentInfo(employmentType, key, value) {
     employmentType,
     key,
     value
+  }
+}
+
+export function syncAddress(address) {
+  return {
+    type: SYNC_ADDRESS,
+    address
   }
 }
