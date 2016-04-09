@@ -33,7 +33,7 @@ class PersonalInfo extends Component {
     let that = this;
     return fields.map((field, i) => {
       if(field.title) {
-        return <FormField key={i} title={field.title} name={field.name} type={field.type} updateValue={this.updateValue} value={that.props.personalInfo[field.name]}/>; 
+        return <FormField key={i} title={field.title} name={field.name} type={field.type} updateValue={this.updateValue} value={that.props.personalInfo[field.name]}/>;
       } else {
         return <h4 key={i} >{field.header}</h4>;
       }
@@ -43,9 +43,9 @@ class PersonalInfo extends Component {
   render() {
     let nameDOM = this.renderFields(fields.name);
     let addressDOM = this.renderFields(fields.address);
-    
+
     return (
-      <div>                
+      <div>
         <h2>Personal Info</h2>
         {nameDOM}
         <h4>Contact Info</h4>
