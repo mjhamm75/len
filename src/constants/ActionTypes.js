@@ -1,5 +1,5 @@
-export const SYNC_ADDRESS = 'SYNC_ADDRESS';
-export const UPDATE_PERSONAL_INFO = 'UPDATE_PERSONAL_INFO';
-export const UPDATE_SPOUSE_INFO = 'UPDATE_SPOUSE_INFO';
-export const UPDATE_DEPENDENT_INFO = 'UPDATE_DEPENDENT_INFO';
-export const UPDATE_EMPLOYMENT_INFO = 'UPDATE_EMPLOYMENT_INFO';
+export const SYNC_ADDRESS = Symbol();
+export const UPDATE_PERSONAL_INFO = Symbol();
+export const UPDATE_SPOUSE_INFO = Symbol();
+export const UPDATE_DEPENDENT_INFO = Symbol();
+export const UPDATE_EMPLOYMENT_INFO = Symbol();
