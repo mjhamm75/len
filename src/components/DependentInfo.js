@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { updateDependentInfo } from './../actions/CounterActions';
+import { updateDependentInfo } from './../actions/Actions';
 import { connect } from 'react-redux';
 import { routeActions } from 'redux-simple-router'
 import DependentFormField from './DependentFormField';
@@ -41,7 +41,7 @@ class DependentInfo extends Component {
 		let dependentsDOM = this.renderDependents(this.state.dependents);
 		return (
 			<div>
-				<h2>Dependent Info</h2>				
+				<h2>Dependent Info</h2>
 				<button onClick={this.addDependent}>Add Dependent</button>
 				{dependentsDOM}
 				<br />

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { updateEmploymentInfo } from './../actions/CounterActions';
+import { updateEmploymentInfo } from './../actions/Actions';
 import { routeActions } from 'redux-simple-router';
 import EmployerFormField from './EmployerFormField';
 
@@ -24,7 +24,7 @@ class EmploymentInfo extends Component {
 			<div>
 				<h2>Employment Info</h2>
 				<button onClick={() => this.addEmployer('employers')}>Add Employer</button>
-				{employerDOM}		
+				{employerDOM}
 				{marriedDOM}
 				<br />
 				<button onClick={this.saveAndContinue}>Save and Continue</button>
@@ -36,7 +36,7 @@ class EmploymentInfo extends Component {
 		return this.state[type].map((employer, i) => {
 			return (
 				<EmployerFormField key={i} index={i} updateEmployer={this.updateEmployer} type={type}/>
-			)			
+			)
 		});
 	}
 

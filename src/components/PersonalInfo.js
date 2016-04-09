@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { updatePersonalInfo } from './../actions/CounterActions';
+import { updatePersonalInfo } from './../actions/Actions';
 import FormField from './FormField';
 import ListFormField from './ListFormField';
 import { routeActions } from 'redux-simple-router'

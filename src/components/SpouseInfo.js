@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { updateSpouseInfo, syncAddress } from './../actions/CounterActions';
+import { updateSpouseInfo, syncAddress } from './../actions/Actions';
 import FormField from './FormField';
 import { routeActions } from 'redux-simple-router'
 var fields = require('./mock.fields.js');
