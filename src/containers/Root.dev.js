@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import { Router, Route } from 'react-router';
 import App from './App';
-import PersonalInfo from './../components/PersonalInfo';
-import SpouseInfo from './../components/SpouseInfo';
-import DependentInfo from './../components/DependentInfo';
-import EmploymentInfo from './../components/EmploymentInfo';
-import PropertyInfo from './../components/PropertyInfo';
+import PersonalInfo from '../components/PersonalInfo';
+import SpouseInfo from '../components/SpouseInfo';
+import DependentInfo from '../components/DependentInfo';
+import EmploymentInfo from '../components/EmploymentInfo';
+import PropertyInfo from '../components/PropertyInfo';
 
 const routes = (
   <Route path="/" component={App}>
