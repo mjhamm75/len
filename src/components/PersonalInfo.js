@@ -49,9 +49,7 @@ class PersonalInfo extends Component {
       <div>
         <h2>Personal Info</h2>
         <form className="pure-form pure-form-stacked">
-          <fieldset>
             {nameDOM}
-          </fieldset>
         </form>
         <h4>Contact Info</h4>
           <Select options={fields.phones} title="Add Phone" updateValue={this.updateValue}/>
@@ -65,11 +63,9 @@ class PersonalInfo extends Component {
           </div>
         <h4>Address Info</h4>
         <form className="pure-form pure-form-stacked">
-          <fieldset>
-            {addressDOM}            
-          </fieldset>
+            {addressDOM}
         </form>
-        <button onClick={this.saveAndContinue.bind(this)}>Save and Continue</button>
+        <button className="pure-button" onClick={this.saveAndContinue.bind(this)}>Save and Continue</button>
       </div>
     )
   }

@@ -23,15 +23,15 @@ class EmploymentInfo extends Component {
 		return (
 			<div>
 				<h2>Employment Info</h2>
-				<button onClick={() => this.addEmployer('employers')}>Add Employer</button>
+				<button className="pure-button" onClick={() => this.addEmployer('employers')}>Add Employer</button>
 				<form className="pure-form pure-form-stacked">
-					{employerDOM}						
+					{employerDOM}
 				</form>
 				<form className="pure-form pure-form-stacked">
 					{marriedDOM}
 				</form>
 				<br />
-				<button onClick={this.saveAndContinue}>Save and Continue</button>
+				<button className="pure-button" onClick={this.saveAndContinue}>Save and Continue</button>
 			</div>
 		)
 	}

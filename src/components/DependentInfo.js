@@ -42,14 +42,12 @@ class DependentInfo extends Component {
 		return (
 			<div>
 				<h2>Dependent Info</h2>
-				<button onClick={this.addDependent}>Add Dependent</button>
+				<button className="pure-button" onClick={this.addDependent}>Add Dependent</button>
 					<form className="pure-form pure-form-stacked">
-						<fieldset>
-							{dependentsDOM}							
-						</fieldset>
+						{dependentsDOM}
 					</form>
 				<br />
-				<button onClick={this.saveAndContinue}>Save and Continue</button>
+				<button className="pure-button" onClick={this.saveAndContinue}>Save and Continue</button>
 			</div>
 		)
 	}

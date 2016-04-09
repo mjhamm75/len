@@ -24,7 +24,7 @@ class PropertyInfo extends Component {
 			<div>
 				<h2>Property Information</h2>
 				<h4>Real estate</h4>
-				<button onClick={this.addProperty}>Add property</button>
+				<button className="pure-button" onClick={this.addProperty}>Add property</button>
 				<form className="pure-form pure-form-stacked">
 					{propertiesDOM}
 				</form>
