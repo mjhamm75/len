@@ -8,6 +8,7 @@ import Root from './containers/Root';
 const store = configureStore();
 
 import '!style!css!purecss';
+import '!style!css!react-select/dist/react-select.css';
 
 render(
 	<Provider store={store} >

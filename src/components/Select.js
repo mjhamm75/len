@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import ReactSelect from 'react-select';
 import FormField from './FormField';
 
 class Select extends Component {
@@ -9,7 +10,6 @@ class Select extends Component {
 			fields: [],
 			options: props.options
 		}
-		this.onChange = this.onChange.bind(this);
 	}
 
 	onChange(event) {
@@ -24,20 +24,23 @@ class Select extends Component {
 		})
 	}
 
-	renderOptions() {
+	getOptions() {
 		return this.state.options.map((option, i) => {
-			return <option key={i} value={option.name}>{option.title}</option>
+			return {
+				label: option.title,
+				value: option.name
+			}
 		})
 	}
 
 	render() {
 		let showSelect = this.state.showSelect;
-		let options = this.renderOptions();
+		let options = this.getOptions();
 		let select = showSelect ? (
-			<select onChange={this.onChange}>
-				<option>--</option>
-				{options}
-			</select>
+			<ReactSelect
+				onChange={this.onChange.bind(this)}
+				options={options}
+			/>
 		) : null;
 		let button = this.state.options.length > 0 ? <button className="pure-button" onClick={() => this.setState({showSelect : true})}>{this.props.title}</button> : null;
 		let fields = this.state.fields.map((field, i) => <FormField key={i} title={field.title} name={field.name} type={field.type} updateValue={this.props.updateValue}/>);
