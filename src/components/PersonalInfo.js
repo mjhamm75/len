@@ -55,11 +55,16 @@ class PersonalInfo extends Component {
           <Select options={fields.phones} title="Add Phone" updateValue={this.updateValue}/>
           <Select options={fields.email} title="Add Email" updateValue={this.updateValue}/>
           <div>
-            <input onClick={this.updateValue} name="marriage" type="radio" value="single"/>Single
-            <input onClick={this.updateValue} name="marriage" type="radio" value="married"/>Married
-            <input onClick={this.updateValue} name="marriage" type="radio" value="widowed"/>Widowed
-            <input onClick={this.updateValue} name="marriage" type="radio" value="divorced"/>Divorced
-            <input onClick={this.updateValue} name="marriage" type="radio" value="separated"/>Separated
+            <input onClick={this.updateValue} name="marriage" type="radio" value="single"/>
+            <label>Single</label>
+            <input onClick={this.updateValue} name="marriage" type="radio" value="married"/>
+            <label>Married</label>
+            <input onClick={this.updateValue} name="marriage" type="radio" value="widowed"/>
+            <label>Widowed</label>
+            <input onClick={this.updateValue} name="marriage" type="radio" value="divorced"/>
+            <label>Divorced</label>
+            <input onClick={this.updateValue} name="marriage" type="radio" value="separated"/>
+            <label>Separated</label>
           </div>
         <h4>Address Info</h4>
         <form className="pure-form pure-form-stacked">
