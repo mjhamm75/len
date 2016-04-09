@@ -9,12 +9,6 @@ import Select from './Select';
 var fields = require('./mock.fields.js');
 
 class PersonalInfo extends Component {
-  constructor() {
-    super();
-    this.updateValue = this.updateValue.bind(this);
-    this.saveAndContinue = this.saveAndContinue.bind(this);
-  }
-
   updateValue(event) {
     let key = event.target.name;
     let val = event.target.value;
@@ -33,7 +27,14 @@ class PersonalInfo extends Component {
     let that = this;
     return fields.map((field, i) => {
       if(field.title) {
-        return <FormField key={i} title={field.title} name={field.name} type={field.type} updateValue={this.updateValue} value={that.props.personalInfo[field.name]}/>;
+        return <FormField
+                  key={i}
+                  name={field.name}
+                  title={field.title}
+                  type={field.type}
+                  updateValue={this.updateValue.bind(this)}
+                  value={that.props.personalInfo[field.name]}
+                />;
       } else {
         return <h4 key={i} >{field.header}</h4>;
       }
@@ -60,7 +61,7 @@ class PersonalInfo extends Component {
           </div>
         <h4>Address Info</h4>
         {addressDOM}
-        <button onClick={this.saveAndContinue}>Save and Continue</button>
+        <button onClick={this.saveAndContinue.bind(this)}>Save and Continue</button>
       </div>
     )
   }
