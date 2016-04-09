@@ -24,8 +24,12 @@ class EmploymentInfo extends Component {
 			<div>
 				<h2>Employment Info</h2>
 				<button onClick={() => this.addEmployer('employers')}>Add Employer</button>
-				{employerDOM}
-				{marriedDOM}
+				<form className="pure-form pure-form-stacked">
+					{employerDOM}						
+				</form>
+				<form className="pure-form pure-form-stacked">
+					{marriedDOM}
+				</form>
 				<br />
 				<button onClick={this.saveAndContinue}>Save and Continue</button>
 			</div>

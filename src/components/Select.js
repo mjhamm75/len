@@ -45,7 +45,11 @@ class Select extends Component {
 			<div>
 				{button}
 				{select}
-				{fields}
+				<form className="pure-form pure-form-stacked">
+					<fieldset>
+						{fields}						
+					</fieldset>
+				</form>
 			</div>
 		)
 	}

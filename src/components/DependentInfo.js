@@ -43,7 +43,11 @@ class DependentInfo extends Component {
 			<div>
 				<h2>Dependent Info</h2>
 				<button onClick={this.addDependent}>Add Dependent</button>
-				{dependentsDOM}
+					<form className="pure-form pure-form-stacked">
+						<fieldset>
+							{dependentsDOM}							
+						</fieldset>
+					</form>
 				<br />
 				<button onClick={this.saveAndContinue}>Save and Continue</button>
 			</div>

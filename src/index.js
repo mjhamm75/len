@@ -7,6 +7,8 @@ import Root from './containers/Root';
 
 const store = configureStore();
 
+import '!style!css!purecss';
+
 render(
 	<Provider store={store} >
 		<div>

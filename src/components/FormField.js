@@ -9,7 +9,7 @@ export default class FormField extends Component {
 		let name = this.props.name;
 		let type = this.props.type;
 		return (
-			<div>
+			<div className="pure-control-group">
 				<label>{title}</label>
 				<input onChange={update} type={type} name={name} defaultValue={this.props.value} disabled={this.props.disabled}/>
 			</div>

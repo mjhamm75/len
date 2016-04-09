@@ -48,7 +48,11 @@ class PersonalInfo extends Component {
     return (
       <div>
         <h2>Personal Info</h2>
-        {nameDOM}
+        <form className="pure-form pure-form-stacked">
+          <fieldset>
+            {nameDOM}
+          </fieldset>
+        </form>
         <h4>Contact Info</h4>
           <Select options={fields.phones} title="Add Phone" updateValue={this.updateValue}/>
           <Select options={fields.email} title="Add Email" updateValue={this.updateValue}/>
@@ -60,7 +64,11 @@ class PersonalInfo extends Component {
             <input onClick={this.updateValue} name="marriage" type="radio" value="separated"/>Separated
           </div>
         <h4>Address Info</h4>
-        {addressDOM}
+        <form className="pure-form pure-form-stacked">
+          <fieldset>
+            {addressDOM}            
+          </fieldset>
+        </form>
         <button onClick={this.saveAndContinue.bind(this)}>Save and Continue</button>
       </div>
     )
