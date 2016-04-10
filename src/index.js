@@ -9,6 +9,7 @@ const store = configureStore();
 
 import '!style!css!purecss';
 import '!style!css!react-select/dist/react-select.css';
+import '!style!css!./styles/app.css';
 
 render(
 	<Provider store={store} >
