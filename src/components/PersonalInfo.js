@@ -9,8 +9,19 @@ import Select from './Select';
 var fields = require('./mock.fields.js');
 
 class PersonalInfo extends Component {
+  constructor() {
+      super();
+      this.updateRadio = this.updateRadio.bind(this);
+  }
+
   updateValue(name, value) {
     this.props.dispatch(updatePersonalInfo(name, value));
+  }
+
+  updateRadio(event) {
+    let name = event.currentTarget.name;
+    let value = event.currentTarget.value;
+    this.props.dispatch(updatePersonalInfo(name, value))
   }
 
   saveAndContinue() {
@@ -53,15 +64,15 @@ class PersonalInfo extends Component {
           <Select options={fields.phones} title="Add Phone" updateValue={this.updateValue}/>
           <Select options={fields.email} title="Add Email" updateValue={this.updateValue}/>
           <div className="radio">
-            <input onClick={this.updateValue} name="marriage" type="radio" value="single"/>
+            <input onClick={this.updateRadio} name="marriage" type="radio" value="single"/>
             <label>Single</label>
-            <input onClick={this.updateValue} name="marriage" type="radio" value="married"/>
+            <input onClick={this.updateRadio} name="marriage" type="radio" value="married"/>
             <label>Married</label>
-            <input onClick={this.updateValue} name="marriage" type="radio" value="widowed"/>
+            <input onClick={this.updateRadio} name="marriage" type="radio" value="widowed"/>
             <label>Widowed</label>
-            <input onClick={this.updateValue} name="marriage" type="radio" value="divorced"/>
+            <input onClick={this.updateRadio} name="marriage" type="radio" value="divorced"/>
             <label>Divorced</label>
-            <input onClick={this.updateValue} name="marriage" type="radio" value="separated"/>
+            <input onClick={this.updateRadio} name="marriage" type="radio" value="separated"/>
             <label>Separated</label>
           </div>
         <h4>Address Info</h4>
