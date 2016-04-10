@@ -1,3 +1,5 @@
+import { UPDATE_PERSONAL_INFO } from '../constants/ActionTypes';
+
 let defaultState = {
 	name: null,
 	ssn: null,
@@ -13,7 +15,7 @@ let defaultState = {
 
 export default function personalInfo(state = defaultState, action) {
 	switch(action.type) {
-		case "UPDATE_PERSONAL_INFO":
+		case UPDATE_PERSONAL_INFO:
 			state[action.key] = action.value;
 			return Object.assign({}, state);
 		default:

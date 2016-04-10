@@ -9,10 +9,8 @@ import Select from './Select';
 var fields = require('./mock.fields.js');
 
 class PersonalInfo extends Component {
-  updateValue(event) {
-    let key = event.target.name;
-    let val = event.target.value;
-    this.props.dispatch(updatePersonalInfo(key, val));
+  updateValue(name, value) {
+    this.props.dispatch(updatePersonalInfo(name, value));
   }
 
   saveAndContinue() {
