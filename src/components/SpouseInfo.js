@@ -48,13 +48,13 @@ class SpouseInfo extends Component {
     return (
       <div>
         <h2>Spouse Info</h2>
-        <form className="pure-form pure-form-aligned">
+        <form className="pure-form pure-form-stacked">
           {fieldsDOM}
         </form>
         <h3>Address</h3>
         <input ref="same" type="checkbox" onChange={this.updateSame}></input> Same as spouse
         <br />
-        <form className="pure-form pure-form-aligned">
+        <form className="pure-form pure-form-stacked">
           {addressDOM}
         </form>
         <br />
