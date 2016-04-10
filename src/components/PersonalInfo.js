@@ -52,7 +52,7 @@ class PersonalInfo extends Component {
         <h4>Contact Info</h4>
           <Select options={fields.phones} title="Add Phone" updateValue={this.updateValue}/>
           <Select options={fields.email} title="Add Email" updateValue={this.updateValue}/>
-          <div>
+          <div className="radio">
             <input onClick={this.updateValue} name="marriage" type="radio" value="single"/>
             <label>Single</label>
             <input onClick={this.updateValue} name="marriage" type="radio" value="married"/>
