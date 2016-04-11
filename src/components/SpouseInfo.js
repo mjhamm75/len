@@ -37,7 +37,14 @@ class SpouseInfo extends Component {
 
   renderAddress(same) {
     return fields.spouseAddress.map((field, i) => {
-      return <FormField key={i} title={field.title} name={field.name} disabled={same} />
+      let value = same ? this.props.spouseInfo[field.name] : null;
+      return <FormField
+                disabled={same}
+                key={i}
+                name={field.name}
+                title={field.title}
+                value={value}
+              />
     });
   }
 
