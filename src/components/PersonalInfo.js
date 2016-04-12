@@ -55,7 +55,7 @@ class PersonalInfo extends Component {
     let addressDOM = this.renderFields(fields.address);
 
     return (
-      <div>
+      <div className="pure-g-u-1-3">
         <h2>Personal Info</h2>
         <form className="pure-form pure-form-stacked">
             {nameDOM}
@@ -64,15 +64,41 @@ class PersonalInfo extends Component {
           <Select options={fields.phones} title="Add Phone" updateValue={this.updateValue}/>
           <Select options={fields.email} title="Add Email" updateValue={this.updateValue}/>
           <div className="radio">
-            <input onClick={this.updateRadio} name="marriage" type="radio" value="single"/>
+            <input
+              checked={this.props.personalInfo.marriage === ''}
+              name="marriage"
+              onClick={this.updateRadio}
+              type="radio"
+              value="single"
+            />
             <label>Single</label>
-            <input onClick={this.updateRadio} name="marriage" type="radio" value="married"/>
+            <input
+              name="marriage"
+              onClick={this.updateRadio}
+              type="radio"
+              value="married"
+            />
             <label>Married</label>
-            <input onClick={this.updateRadio} name="marriage" type="radio" value="widowed"/>
+            <input
+              name="marriage"
+              onClick={this.updateRadio}
+              type="radio"
+              value="widowed"
+            />
             <label>Widowed</label>
-            <input onClick={this.updateRadio} name="marriage" type="radio" value="divorced"/>
+            <input
+              name="marriage"
+              onClick={this.updateRadio}
+              type="radio"
+              value="divorced"
+            />
             <label>Divorced</label>
-            <input onClick={this.updateRadio} name="marriage" type="radio" value="separated"/>
+            <input
+              name="marriage"
+              onClick={this.updateRadio}
+              type="radio"
+              value="separated"
+            />
             <label>Separated</label>
           </div>
         <h4>Address Info</h4>
