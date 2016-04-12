@@ -11,7 +11,7 @@ class MultiAdd extends Component {
   render() {
     let rows = this.renderRowsDom();
     return (
-      <div>
+      <div className="rows">
         <a className="button small" onClick={this.add.bind(this)}>{this.props.label}</a>
          {rows}
       </div>
@@ -19,8 +19,8 @@ class MultiAdd extends Component {
   }
 
   renderRowsDom() {
-    return this.state.rows.map(row => {
-      return <input />
+    return this.state.rows.map((row, index) => {
+      return <input key={index}/>
     });
   }
 
