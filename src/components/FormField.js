@@ -38,7 +38,6 @@ export default class FormField extends Component {
 						onChange={this.updateValue}
 						ref="input"
 						type={type}
-						value={this.props.value}
 					/>
 				</div>
 			)
