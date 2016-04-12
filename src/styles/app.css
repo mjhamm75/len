@@ -17,6 +17,9 @@
   display: flex;
   justify-content: space-around;
 }
+.column {
+  flex-direction: column;
+}
 .field {
   margin-bottom: 25px;
 }
@@ -34,6 +37,15 @@ input {
   height: 28px;
   padding: 0 4px;
   width: 280px;
+}
+.radio input {
+  display: inline;
+  vertical-align: middle;
+  width: 20px;
+}
+.radio label {
+  display: inline;
+  vertical-align: middle;
 }
 .pull-right {
   float: right;

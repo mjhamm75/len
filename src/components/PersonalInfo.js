@@ -18,6 +18,14 @@ class PersonalInfo extends Component {
               <label>Date of Birth</label>
               <input />
             </div>
+            <div className="field">
+              <label>Phone Number</label>
+              <input />
+            </div>
+            <div className="field">
+              <label>Email Address</label>
+              <input />
+            </div>
           </div>
           <div>
             <div className="field">
@@ -43,50 +51,52 @@ class PersonalInfo extends Component {
           </div>
           <div>
             <div className="field">
-              <label>Phone Number</label>
-              <input />
-            </div>
-            <div className="field">
-              <label>Email Address</label>
-              <input />
-            </div>
-            <div className="fields">
-              <div className="radio">
-                <input
-                  name="marriage"
-                  onClick={this.updateRadio}
-                  type="radio"
-                  value="single"
-                />
-                <label>Single</label>
-                <input
-                  name="marriage"
-                  onClick={this.updateRadio}
-                  type="radio"
-                  value="married"
-                />
-                <label>Married</label>
-                <input
-                  name="marriage"
-                  onClick={this.updateRadio}
-                  type="radio"
-                  value="widowed"
-                />
-                <label>Widowed</label>
-                <input
-                  name="marriage"
-                  onClick={this.updateRadio}
-                  type="radio"
-                  value="divorced"
-                />
-                <label>Divorced</label>
-                <input
-                  name="marriage"
-                  onClick={this.updateRadio}
-                  type="radio"
-                  value="separated"
-                />
-                <label>Separated</label>
+              <div className="flex column radio">
+                <div>
+                  <input
+                    name="marriage"
+                    onClick={this.updateRadio}
+                    type="radio"
+                    value="single"
+                  />
+                  <label>Single</label>
+                </div>
+                <div>
+                    <input
+                      name="marriage"
+                      onClick={this.updateRadio}
+                      type="radio"
+                      value="married"
+                    />
+                  <label>Married</label>
+                </div>
+                <div>
+                    <input
+                      name="marriage"
+                      onClick={this.updateRadio}
+                      type="radio"
+                      value="widowed"
+                    />
+                  <label>Widowed</label>
+                </div>
+                <div>
+                    <input
+                      name="marriage"
+                      onClick={this.updateRadio}
+                      type="radio"
+                      value="divorced"
+                    />
+                  <label>Divorced</label>
+                </div>
+                <div>
+                    <input
+                      name="marriage"
+                      onClick={this.updateRadio}
+                      type="radio"
+                      value="separated"
+                    />
+                  <label>Separated</label>
+                </div>
               </div>
             </div>
           </div>
