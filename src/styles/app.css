@@ -50,7 +50,7 @@ input {
 .pull-right {
   float: right;
 }
-.next {
+.button {
   color: white;
   background: #5FACBE;
   box-shadow: 0 2px 4px 0 rgba(0,0,0,.24);
@@ -61,9 +61,13 @@ input {
   text-align: center;
   text-decoration: none;
 }
-.next:hover {
+.button:hover {
 	background: #5193A2;
 }
-.next:active {
+.button:active {
 	box-shadow: none;
+}
+.button.small {
+  margin: 0 0;
+  padding: 4px 12px;
 }

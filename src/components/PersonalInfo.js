@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import Calendar from 'react-input-calendar';
 import { routeActions } from 'redux-simple-router'
+import Calendar from 'react-input-calendar';
+
+import MultiAdd from './MultiAdd';
 
 class PersonalInfo extends Component {
   render() {
@@ -23,11 +25,15 @@ class PersonalInfo extends Component {
             </div>
             <div className="field">
               <label>Phone Number</label>
-              <input />
+              <MultiAdd
+                label="Add Phone"
+              />
             </div>
             <div className="field">
               <label>Email Address</label>
-              <input />
+              <MultiAdd
+                label="Add Email"
+              />
             </div>
           </div>
           <div>
@@ -104,7 +110,7 @@ class PersonalInfo extends Component {
             </div>
           </div>
         </div>
-        <a className="next pull-right" onClick={this.continue.bind(this)}>Next</a>
+        <a className="button pull-right" onClick={this.continue.bind(this)}>Next</a>
       </div>
     )
   }
