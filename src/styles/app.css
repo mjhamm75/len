@@ -11,3 +11,47 @@
 .add {
   margin-bottom: 15px;
 }
+
+
+.flex {
+  display: flex;
+  justify-content: space-around;
+}
+.field {
+  margin-bottom: 25px;
+}
+label, input {
+  display: block;
+}
+label {
+  color: #AAA;
+  font-size: 20px;
+  margin-bottom: 8px;
+}
+input {
+  color: #777;
+  font-size: 16px;
+  height: 28px;
+  padding: 0 4px;
+  width: 280px;
+}
+.pull-right {
+  float: right;
+}
+.next {
+  color: white;
+  background: #5FACBE;
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,.24);
+  display: table;
+  font-size: 17px;
+  margin: 0 auto;
+  padding: 11px 30px;
+  text-align: center;
+  text-decoration: none;
+}
+.next:hover {
+	background: #5193A2;
+}
+.next:active {
+	box-shadow: none;
+}
