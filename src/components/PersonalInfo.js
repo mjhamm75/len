@@ -8,7 +8,7 @@ class PersonalInfo extends Component {
           <div>
             <div className="field">
               <label>Name</label>
-              <input />
+              <input/>
             </div>
             <div className="field">
               <label>Social Security Number</label>
@@ -49,6 +49,45 @@ class PersonalInfo extends Component {
             <div className="field">
               <label>Email Address</label>
               <input />
+            </div>
+            <div className="fields">
+              <div className="radio">
+                <input
+                  name="marriage"
+                  onClick={this.updateRadio}
+                  type="radio"
+                  value="single"
+                />
+                <label>Single</label>
+                <input
+                  name="marriage"
+                  onClick={this.updateRadio}
+                  type="radio"
+                  value="married"
+                />
+                <label>Married</label>
+                <input
+                  name="marriage"
+                  onClick={this.updateRadio}
+                  type="radio"
+                  value="widowed"
+                />
+                <label>Widowed</label>
+                <input
+                  name="marriage"
+                  onClick={this.updateRadio}
+                  type="radio"
+                  value="divorced"
+                />
+                <label>Divorced</label>
+                <input
+                  name="marriage"
+                  onClick={this.updateRadio}
+                  type="radio"
+                  value="separated"
+                />
+                <label>Separated</label>
+              </div>
             </div>
           </div>
         </div>
