@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import Calendar from 'react-input-calendar';
 
 class PersonalInfo extends Component {
   render() {
@@ -16,7 +18,7 @@ class PersonalInfo extends Component {
             </div>
             <div className="field">
               <label>Date of Birth</label>
-              <input />
+              <Calendar />
             </div>
             <div className="field">
               <label>Phone Number</label>
@@ -107,4 +109,10 @@ class PersonalInfo extends Component {
   }
 }
 
-export default PersonalInfo;
+function mapStateToProps(state) {
+  return {
+    personalInfo: state.personalInfo
+  }
+}
+
+export default connect(mapStateToProps)(PersonalInfo);
