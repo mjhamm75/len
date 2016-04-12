@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Calendar from 'react-input-calendar';
+import { routeActions } from 'redux-simple-router'
 
 class PersonalInfo extends Component {
   render() {
@@ -103,9 +104,17 @@ class PersonalInfo extends Component {
             </div>
           </div>
         </div>
-        <a className="next pull-right">Next</a>
+        <a className="next pull-right" onClick={this.continue.bind(this)}>Next</a>
       </div>
     )
+  }
+
+  continue() {
+    if(this.props.personalInfo.marriage === 'married') {
+      this.props.dispatch(routeActions.push('/spouse'));
+    } else {
+      this.props.dispatch(routeActions.push('/dependents'));
+    }
   }
 }
 
