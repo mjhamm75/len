@@ -7,20 +7,21 @@ let name = [
   {
     title: 'Social Security',
     name: 'ssn',
-    type: 'text'
+    type: 'text',
+    mask: '111-11-1111'
   },
   {
     title: 'Date of Birth',
     name: 'dob',
     type: 'text'
   }
-];      
-      
+];
+
 let phones = [
   {
     title: 'Home Phone',
     name: 'hphone',
-    type: 'text' 
+    type: 'text'
   },
   {
     title: 'Work Phone',
@@ -38,7 +39,7 @@ let email = [
   {
     title: 'Email',
     name: 'email',
-    type: 'text' 
+    type: 'text'
   }
 ];
 
@@ -100,7 +101,7 @@ let spouseAddress = [
 
 module.exports = {
   name,
-  phones, 
+  phones,
   address,
   email,
   spouseAddress

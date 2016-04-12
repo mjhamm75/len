@@ -38,6 +38,7 @@ class PersonalInfo extends Component {
       if(field.title) {
         return <FormField
                   key={i}
+                  mask={field.mask}
                   name={field.name}
                   title={field.title}
                   type={field.type}

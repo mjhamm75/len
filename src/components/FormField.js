@@ -14,6 +14,10 @@ export default class FormField extends Component {
 		this.props.updateValue(input.name, input.value);
 	}
 
+	updateMasked(name, value) {
+		this.props.updateValue(name, value);
+	}
+
 	render() {
 		let title = this.props.title;
 		let name = this.props.name;
@@ -24,7 +28,11 @@ export default class FormField extends Component {
 			return (
 				<div className="pure-control-group">
 					<label>{title}</label>
-					<Masked />
+					<Masked
+						name={name}
+						mask={mask}
+						onChange={this.updateMasked.bind(this)}
+					/>
 				</div>
 			)
 		} else {
