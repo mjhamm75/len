@@ -12,8 +12,7 @@ class Select extends Component {
 		}
 	}
 
-	onChange(event) {
-		let value = event.target.value;
+	onChange({value}) {
 		let option = this.props.options.find(option => option.name === value);
 		this.state.fields.push(option);
 		let filteredOptions = this.state.options.filter(option => option.name !== value);

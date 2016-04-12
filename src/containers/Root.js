@@ -6,6 +6,7 @@ import SpouseInfo from '../components/SpouseInfo';
 import DependentInfo from '../components/DependentInfo';
 import EmploymentInfo from '../components/EmploymentInfo';
 import PropertyInfo from '../components/PropertyInfo';
+import Test from '../components/Test';
 
 const routes = (
   <Route path="/" component={App}>
@@ -14,6 +15,7 @@ const routes = (
     <Route path="dependents" component={DependentInfo} />
     <Route path="employment" component={EmploymentInfo} />
     <Route path="property" component={PropertyInfo} />
+    <Route path="test" component={Test} />
   </Route>
 )
 export default class Root extends Component {

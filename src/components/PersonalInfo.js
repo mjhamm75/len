@@ -55,7 +55,7 @@ class PersonalInfo extends Component {
     let addressDOM = this.renderFields(fields.address);
 
     return (
-      <div className="pure-g-u-1-3">
+      <div>
         <h2>Personal Info</h2>
         <form className="pure-form pure-form-stacked">
             {nameDOM}
