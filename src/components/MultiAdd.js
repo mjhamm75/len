@@ -25,21 +25,39 @@ class MultiAdd extends Component {
         return <MaskedInput
                   key={index}
                   mask={this.props.mask}
-                  onChange={this.onChange.bind(this)}
+                  onChange={this.onUnmask.bind(this, index)}
                 />
       });
     } else {
       return this.state.rows.map((row, index) => {
         return <input
                   key={index}
-                  onChange={this.onChange.bind(this)}
+                  onChange={this.onChange.bind(this, index, event)}
                 />
       });
     }
   }
 
-  onChange() {
-    
+  onUnmask(index, event) {
+    let value = event.target.value.replace(/\D/g,'');
+    this.setState({
+      [index]: value
+    }, this.updateMultiAdd.bind(this));
+  }
+
+  onChange(index, event) {
+    let value = event.target.value;
+    this.setState({
+      [index]: value
+    }, this.updateMultiAdd.bind(this));
+  }
+
+  updateMultiAdd() {
+    this.props.onChange({
+      [this.props.name]: {
+        ...this.state
+      }
+    });
   }
 
   add() {

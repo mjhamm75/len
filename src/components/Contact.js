@@ -32,7 +32,7 @@ class Contact extends Component {
             label="Add Phone"
             mask="111-111-1111"
             name="phones"
-
+            onChange={this.updateMultiAdd.bind(this)}
           />
         </div>
         <div className="field">
@@ -40,7 +40,7 @@ class Contact extends Component {
           <MultiAdd
             label="Add Email"
             name="email"
-
+            onChange={this.updateMultiAdd.bind(this)}
           />
         </div>
       </div>
@@ -62,10 +62,18 @@ class Contact extends Component {
     }, this.updateContact.bind(this))
   }
 
+  updateMultiAdd(obj) {
+    this.setState({
+      ...obj
+    }, this.updateContact.bind(this))
+  }
+
   updateContact() {
     this.props.onChange({
       contact: {
+        email: this.state.email,
         name: this.state.name,
+        phone: this.state.phones,
         ssn: this.state.ssn
       }
     })
