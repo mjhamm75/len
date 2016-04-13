@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import MaskedInput from 'react-maskedinput';
 
 class MultiAdd extends Component {
   constructor() {
@@ -19,9 +20,26 @@ class MultiAdd extends Component {
   }
 
   renderRowsDom() {
-    return this.state.rows.map((row, index) => {
-      return <input key={index}/>
-    });
+    if(this.props.mask) {
+      return this.state.rows.map((row, index) => {
+        return <MaskedInput
+                  key={index}
+                  mask={this.props.mask}
+                  onChange={this.onChange.bind(this)}
+                />
+      });
+    } else {
+      return this.state.rows.map((row, index) => {
+        return <input
+                  key={index}
+                  onChange={this.onChange.bind(this)}
+                />
+      });
+    }
+  }
+
+  onChange() {
+    
   }
 
   add() {
