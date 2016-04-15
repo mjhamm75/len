@@ -8,6 +8,16 @@
 .radio label {
   margin-right: 10px;
 }
+.checkbox input {
+  display: inline;
+  margin-right: 10px;
+  width: auto;
+  vertical-align: middle;
+}
+.checkbox label {
+  display: inline;
+  vertical-align: middle;
+}
 .add {
   margin-bottom: 15px;
 }
