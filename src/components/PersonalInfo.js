@@ -26,7 +26,6 @@ class PersonalInfo extends Component {
   }
 
   continue() {
-    debugger;
     if(this.props.personalInfo.marriage === 'married') {
       this.props.dispatch(routeActions.push('/spouse'));
     } else {
