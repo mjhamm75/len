@@ -4,6 +4,10 @@ import Calendar from 'react-input-calendar';
 import MultiAdd from './MultiAdd';
 
 class Contact extends Component {
+  constructor() {
+    super();
+    this.onChange = this.onChange.bind(this);
+  }
   render() {
     return (
       <div>
@@ -63,6 +67,7 @@ class Contact extends Component {
   }
 
   updateMultiAdd(obj) {
+    delete obj.rows
     this.setState({
       ...obj
     }, this.updateContact.bind(this))
@@ -70,12 +75,10 @@ class Contact extends Component {
 
   updateContact() {
     this.props.onChange({
-      contact: {
         email: this.state.email,
         name: this.state.name,
         phone: this.state.phones,
         ssn: this.state.ssn
-      }
     })
   }
 }

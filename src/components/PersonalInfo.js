@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { routeActions } from 'redux-simple-router'
+import { updatePersonalInfo } from './../actions/Actions'
 
 import Contact from './Contact';
 import Address from './Address';
@@ -11,9 +12,9 @@ class PersonalInfo extends Component {
     return (
       <div>
         <div className="flex">
-          <Contact onChange={this.onChange}/>
-          <Address />
-          <Married />
+          <Contact onChange={this.onChange.bind(this)}/>
+          <Address onChange={this.onChange.bind(this)}/>
+          <Married onChange={this.onChange.bind(this)}/>
         </div>
         <a className="button pull-right" onClick={this.continue.bind(this)}>Next</a>
       </div>
@@ -21,10 +22,11 @@ class PersonalInfo extends Component {
   }
 
   onChange(obj) {
-    console.log(obj);
+    this.props.dispatch(updatePersonalInfo(obj));
   }
 
   continue() {
+    debugger;
     if(this.props.personalInfo.marriage === 'married') {
       this.props.dispatch(routeActions.push('/spouse'));
     } else {

@@ -6,11 +6,18 @@ import {
   UPDATE_DEPENDENT_INFO
 } from '../constants/ActionTypes';
 
-export function updatePersonalInfo(key, value) {
+// export function updatePersonalInfo(key, value) {
+//   return {
+//     type: UPDATE_PERSONAL_INFO,
+//     key,
+//     value
+//   }
+// }
+
+export function updatePersonalInfo(info) {
   return {
     type: UPDATE_PERSONAL_INFO,
-    key,
-    value
+    info
   }
 }
 

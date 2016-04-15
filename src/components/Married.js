@@ -1,6 +1,12 @@
 import React, { Component } from 'react';
 
 class Married extends Component {
+  updateRadio(event) {
+      this.props.onChange({
+        marriage: event.target.value
+      })
+  }
+
   render() {
     return (
       <div>
@@ -9,7 +15,7 @@ class Married extends Component {
             <div>
               <input
                 name="marriage"
-                onClick={this.updateRadio}
+                onClick={this.updateRadio.bind(this)}
                 type="radio"
                 value="single"
               />
@@ -18,7 +24,7 @@ class Married extends Component {
             <div>
                 <input
                   name="marriage"
-                  onClick={this.updateRadio}
+                  onClick={this.updateRadio.bind(this)}
                   type="radio"
                   value="married"
                 />
@@ -27,7 +33,7 @@ class Married extends Component {
             <div>
                 <input
                   name="marriage"
-                  onClick={this.updateRadio}
+                  onClick={this.updateRadio.bind(this)}
                   type="radio"
                   value="widowed"
                 />
@@ -36,7 +42,7 @@ class Married extends Component {
             <div>
                 <input
                   name="marriage"
-                  onClick={this.updateRadio}
+                  onClick={this.updateRadio.bind(this)}
                   type="radio"
                   value="divorced"
                 />
@@ -45,7 +51,7 @@ class Married extends Component {
             <div>
                 <input
                   name="marriage"
-                  onClick={this.updateRadio}
+                  onClick={this.updateRadio.bind(this)}
                   type="radio"
                   value="separated"
                 />
