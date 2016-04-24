@@ -1,5 +1,7 @@
 var path = require('path');
 var webpack = require('webpack');
+var autoprefixer = require('autoprefixer');
+var ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
     devtool: 'eval',
@@ -14,7 +16,8 @@ module.exports = {
         publicPath: '/static/'
     },
     plugins: [
-        new webpack.HotModuleReplacementPlugin()
+        new webpack.HotModuleReplacementPlugin(),
+        new ExtractTextPlugin("app.css"),
     ],
     module: {
         loaders: [{
@@ -27,8 +30,14 @@ module.exports = {
             loaders: ['react-hot', 'babel'],
             include: path.join(__dirname, '..', '..', 'src')
         }, {
+            test: /\.scss$/,
+            loaders: ["style", "css", "sass"]
+        }, {
             test: /\.css$/,
-            loader: "style-loader!css-loader"
+            loader: ExtractTextPlugin.extract('style-loader', 'css-loader?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]!postcss-loader')
         }]
+    },
+    postcss: function() {
+        return [autoprefixer];
     }
 };
