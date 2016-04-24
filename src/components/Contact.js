@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import MaskedInput from 'react-maskedinput';
-import Calendar from 'react-input-calendar';
+
+import Calendar from './Calendar';
 import MultiAdd from './MultiAdd';
 
 class Contact extends Component {

@@ -12,7 +12,7 @@ class PersonalInfo extends Component {
     return (
       <div>
         <div className="flex">
-          <Contact onChange={this.onChange.bind(this)}/>
+          <Contact address={this.props.personalInfo.address} onChange={this.onChange.bind(this)}/>
           <Address onChange={this.onChange.bind(this)}/>
           <Married onChange={this.onChange.bind(this)}/>
         </div>
