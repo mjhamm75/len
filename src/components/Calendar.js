@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import ReactInputCalendar from 'react-input-calendar';
-require('react-input-calendar/styles/input-calendar.css');
+require('!style!css!sass!../styles/input-calendar.css');
 
 
 class Calendar extends Component {

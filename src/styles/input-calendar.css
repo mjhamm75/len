@@ -1,10 +1,12 @@
 .input-calendar {
+    display: inline-flex;
     font-family: 'Pontano Sans', sans-serif;
     width: 175px;
     position: relative;
 }
 
 .input-calendar-wrapper {
+    margin-top: 32px;
     position: absolute;
     padding: 5px 12px;
     border: 1px solid #c4c4c4;
@@ -13,7 +15,7 @@
     background-color: #fff;
     width: 189px;
     text-align: center;
-    left: 140px;
+    left: 0px;
     -webkit-touch-callout: none;
     -webkit-user-select: none;
     -moz-user-select: none;
@@ -42,6 +44,8 @@
 .input-calendar .calendar-icon {
     display: inline-block;
     padding: 0 5px;
+    margin-left: -30px;
+    margin-top: 7px;
     height: 27px;
     line-height: 27px;
 }
