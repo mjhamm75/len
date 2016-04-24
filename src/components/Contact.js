@@ -28,7 +28,7 @@ class Contact extends Component {
         <div className="field">
           <label>Date of Birth</label>
           <Calendar
-
+            onChange={this.updateDate.bind(this, "dob")}
           />
         </div>
         <div className="field">
@@ -59,6 +59,12 @@ class Contact extends Component {
     }, this.updateContact.bind(this));
   }
 
+  updateDate(key, value) {
+    this.setState({
+      [key]: value
+    }, this.updateContact.bind(this))
+  }
+
   onChange(key, event) {
     var that = this;
 
@@ -76,10 +82,7 @@ class Contact extends Component {
 
   updateContact() {
     this.props.onChange({
-        email: this.state.email,
-        name: this.state.name,
-        phone: this.state.phones,
-        ssn: this.state.ssn
+      ...this.state
     })
   }
 }
