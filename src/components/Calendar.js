@@ -7,8 +7,9 @@ class Calendar extends Component {
   render() {
     return (
       <ReactInputCalendar
-        format="DD/MM/YYYY"
-        placeholder="DD/MM/YYYY"
+        closeOnSelect={true}
+        format="MM/DD/YYYY"
+        placeholder="MM/DD/YYYY"
       />
     )
   }
