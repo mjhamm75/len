@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import PersonalInformation from './PersonalInformation';
 import Address from './Address';
 import Married from './Married';
-import { syncAddress, updateSpouseInfo } from './../actions/Actions'
+import { syncAddress, updateSpouse } from './../actions/Actions'
 
 class SpouseInfo extends Component {
   render() {
@@ -13,12 +13,12 @@ class SpouseInfo extends Component {
       <div>
         <div className="flex">
           <PersonalInformation
+            person={this.props.spouse}
             onChange={this.onChange.bind(this)}
           />
           <Address
+            address={this.props.spouse.address}
             onChange={this.onChange.bind(this)}
-            onCheck={this.onCheck.bind(this)}
-            showSame={true}
           />
         </div>
         <a className="button pull-right" onClick={this.continue.bind(this)}>Next</a>
@@ -32,7 +32,7 @@ class SpouseInfo extends Component {
   }
 
   onChange(obj) {
-    this.props.dispatch(updateSpouseInfo(obj));
+    this.props.dispatch(updateSpouse(obj));
   }
 
   continue() {
@@ -42,7 +42,7 @@ class SpouseInfo extends Component {
 
 function mapStateToProps(state) {
   return {
-    spouseInfo: state.spouseInfo
+    spouse: state.spouse
   }
 }
 

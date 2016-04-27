@@ -1,8 +1,8 @@
 import {
   SYNC_ADDRESS,
   UPDATE_EMPLOYMENT_INFO,
-  UPDATE_CLIENT_INFO,
-  UPDATE_SPOUSE_INFO,
+  UPDATE_CLIENT,
+  UPDATE_SPOUSE,
   UPDATE_DEPENDENT_INFO
 } from '../constants/ActionTypes';
 
@@ -16,14 +16,14 @@ import {
 
 export function updateClient(info) {
   return {
-    type: UPDATE_CLIENT_INFO,
+    type: UPDATE_CLIENT,
     info
   }
 }
 
-export function updateSpouseInfo(key, value) {
+export function updateSpouse(key, value) {
   return {
-    type: UPDATE_SPOUSE_INFO,
+    type: UPDATE_SPOUSE,
     key,
     value
   }
