@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import Calendar from './Calendar';
 import MultiAdd from './MultiAdd';
 
-class Contact extends Component {
+class Personal extends Component {
   render() {
     return (
       <div>
@@ -13,7 +13,7 @@ class Contact extends Component {
           <label>Name</label>
           <input
             onChange={this.onChange.bind(this, "name")}
-            value={this.props.client.name}
+            value={this.props.person.name}
           />
         </div>
         <div className="field">
@@ -85,10 +85,4 @@ class Contact extends Component {
   }
 }
 
-function mapStateToProps(state) {
-  return {
-    client: state.client
-  }
-}
-
-export default connect(mapStateToProps)(Contact);
+export default Personal;
