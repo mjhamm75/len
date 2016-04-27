@@ -19,35 +19,35 @@ class Address extends Component {
           <label>Street 1</label>
           <input
             onChange={this.onChange.bind(this, 'street1')}
-            value={this.props.street1}
+            value={this.props.address.street1}
           />
         </div>
         <div className="field">
           <label>Street 2</label>
           <input
             onChange={this.onChange.bind(this, 'street2')}
-            value={this.props.street2}
+            value={this.props.address.street2}
           />
         </div>
         <div className="field">
           <label>City</label>
           <input
             onChange={this.onChange.bind(this, 'city')}
-            value={this.props.city}
+            value={this.props.address.city}
           />
         </div>
         <div className="field">
           <label>State</label>
           <input
             onChange={this.onChange.bind(this, 'state')}
-            value={this.props.state}
+            value={this.props.address.state}
           />
         </div>
         <div className="field">
           <label>Zip Code</label>
           <input
             onChange={this.onChange.bind(this, 'zip')}
-            value={this.props.zip}
+            value={this.props.address.zip}
           />
         </div>
       </div>
