@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { routeActions } from 'redux-simple-router'
 import { connect } from 'react-redux';
+import { Link } from 'react-router';
 
 import PersonalInformation from './PersonalInformation';
 import Address from './Address';
@@ -21,7 +22,7 @@ class SpouseInfo extends Component {
             onChange={this.onChange.bind(this)}
           />
         </div>
-        <a className="button pull-right" onClick={this.continue.bind(this)}>Next</a>
+        <Link className="button pull-right" to="/dependents">Next</Link>
       </div>
     )
   }
@@ -33,10 +34,6 @@ class SpouseInfo extends Component {
 
   onChange(obj) {
     this.props.dispatch(updateSpouse(obj));
-  }
-
-  continue() {
-    this.props.dispatch(routeActions.push('/dependents'));
   }
 }
 
