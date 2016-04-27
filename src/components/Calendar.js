@@ -8,7 +8,7 @@ class Calendar extends Component {
     return (
       <ReactInputCalendar
         closeOnSelect={true}
-        date={this.props.date}
+      date={this.props.date}
         format="MM/DD/YYYY"
         onChange={this.props.onChange}
         placeholder="MM/DD/YYYY"

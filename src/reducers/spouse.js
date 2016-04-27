@@ -1,6 +1,21 @@
 import { UPDATE_SPOUSE, SYNC_ADDRESS } from '../constants/ActionTypes';
 
-export default function spouseInfo(state = {}, action) {
+let defaultState = {
+	name: null,
+	ssn: null,
+	dob: null,
+	phones: [],
+	emails: [],
+	address: {
+		street1: null,
+		street2: null,
+		city: null,
+		state: null,
+		zip: null
+	}
+}
+
+export default function spouseInfo(state = defaultState, action) {
 	switch(action.type) {
 		case UPDATE_SPOUSE:
 			state[action.key] = action.value;
