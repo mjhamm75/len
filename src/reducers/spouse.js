@@ -18,10 +18,15 @@ let defaultState = {
 export default function spouseInfo(state = defaultState, action) {
 	switch(action.type) {
 		case UPDATE_SPOUSE:
-			state[action.key] = action.value;
-			return Object.assign({}, state);
+			return {
+				...state,
+				...action.info
+			};
 		case SYNC_ADDRESS:
-			return Object.assign({}, state, action.address);
+			return {
+				...state,
+				...action.address
+			}
 		default:
 			return state;
 	}

@@ -21,11 +21,10 @@ export function updateClient(info) {
   }
 }
 
-export function updateSpouse(key, value) {
+export function updateSpouse(info) {
   return {
     type: UPDATE_SPOUSE,
-    key,
-    value
+    info
   }
 }
 
