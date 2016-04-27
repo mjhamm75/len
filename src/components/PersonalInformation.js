@@ -19,8 +19,9 @@ class Personal extends Component {
         <div className="field">
           <label>Social Security Number</label>
           <MaskedInput
-            onChange={this.onUnmask.bind(this, "ssn")}
             mask="111-11-1111"
+            onChange={this.onUnmask.bind(this, "ssn")}
+            value={this.props.person.ssn}
           />
         </div>
         <div className="field">
@@ -36,6 +37,7 @@ class Personal extends Component {
             mask="111-111-1111"
             name="phones"
             onChange={this.updateMultiAdd.bind(this)}
+            values={this.props.person.phones}
           />
         </div>
         <div className="field">
@@ -44,6 +46,7 @@ class Personal extends Component {
             label="Add Email"
             name="emails"
             onChange={this.updateMultiAdd.bind(this)}
+            values={this.props.person.emails}
           />
         </div>
       </div>
