@@ -13,7 +13,7 @@ class Contact extends Component {
           <label>Name</label>
           <input
             onChange={this.onChange.bind(this, "name")}
-            value={this.props.customer.name}
+            value={this.props.client.name}
           />
         </div>
         <div className="field">
@@ -87,7 +87,7 @@ class Contact extends Component {
 
 function mapStateToProps(state) {
   return {
-    customer: state.customer
+    client: state.client
   }
 }
 

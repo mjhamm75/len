@@ -1,7 +1,7 @@
 import {
   SYNC_ADDRESS,
   UPDATE_EMPLOYMENT_INFO,
-  UPDATE_CUSTOMER_INFO,
+  UPDATE_CLIENT_INFO,
   UPDATE_SPOUSE_INFO,
   UPDATE_DEPENDENT_INFO
 } from '../constants/ActionTypes';
@@ -14,9 +14,9 @@ import {
 //   }
 // }
 
-export function updateCustomer(info) {
+export function updateClient(info) {
   return {
-    type: UPDATE_CUSTOMER_INFO,
+    type: UPDATE_CLIENT_INFO,
     info
   }
 }
