@@ -28,6 +28,7 @@ class Personal extends Component {
           <label>Date of Birth</label>
           <Calendar
             onChange={this.updateDate.bind(this, "dob")}
+            date={this.props.person.dob}
           />
         </div>
         <div className="field">
