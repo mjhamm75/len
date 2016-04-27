@@ -40,23 +40,25 @@ class MultiAdd extends Component {
 
   onUnmask(index, event) {
     let value = event.target.value.replace(/\D/g,'');
+    let rows = this.state.rows;
+    rows[index] = value;
     this.setState({
-      [index]: value
+      rows: rows
     }, this.updateMultiAdd.bind(this));
   }
 
   onChange(index, event) {
     let value = event.target.value;
+    let rows = this.state.rows;
+    rows[index] = value;
     this.setState({
-      [index]: value
+      rows: rows
     }, this.updateMultiAdd.bind(this));
   }
 
   updateMultiAdd() {
     this.props.onChange({
-      [this.props.name]: {
-        ...this.state
-      }
+      [this.props.name]: this.state.rows
     });
   }
 
