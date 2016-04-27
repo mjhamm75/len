@@ -14,6 +14,7 @@ class Married extends Component {
           <div className="flex column radio">
             <div>
               <input
+                checked={this.props.married === 'single'}
                 name="marriage"
                 onClick={this.updateRadio.bind(this)}
                 type="radio"
@@ -23,6 +24,7 @@ class Married extends Component {
             </div>
             <div>
                 <input
+                  checked={this.props.married === 'married'}
                   name="marriage"
                   onClick={this.updateRadio.bind(this)}
                   type="radio"
@@ -32,6 +34,7 @@ class Married extends Component {
             </div>
             <div>
                 <input
+                  checked={this.props.married === 'widowed'}
                   name="marriage"
                   onClick={this.updateRadio.bind(this)}
                   type="radio"
@@ -41,6 +44,7 @@ class Married extends Component {
             </div>
             <div>
                 <input
+                  checked={this.props.married === 'divorced'}
                   name="marriage"
                   onClick={this.updateRadio.bind(this)}
                   type="radio"

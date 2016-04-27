@@ -21,7 +21,7 @@ class Client extends Component {
             onChange={this.onChange.bind(this)}
           />
           <Married
-            married={this.props.client.married}
+            married={this.props.client.marriage}
             onChange={this.onChange.bind(this)}
           />
         </div>
