@@ -4,8 +4,8 @@ let defaultState = {
 	name: null,
 	ssn: null,
 	dob: null,
-	phoneNumbers: [],
-	email: [],
+	phones: [],
+	emails: [],
 	address: {
 		street1: null,
 		street2: null,

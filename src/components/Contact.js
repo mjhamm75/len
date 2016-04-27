@@ -44,7 +44,7 @@ class Contact extends Component {
           <label>Email Address</label>
           <MultiAdd
             label="Add Email"
-            name="email"
+            name="emails"
             onChange={this.updateMultiAdd.bind(this)}
           />
         </div>

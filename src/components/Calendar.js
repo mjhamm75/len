@@ -9,7 +9,6 @@ class Calendar extends Component {
       <ReactInputCalendar
         closeOnSelect={true}
         format="MM/DD/YYYY"
-        onChange={this.props.onChange}
         placeholder="MM/DD/YYYY"
       />
     )
