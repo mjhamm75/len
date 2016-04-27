@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Router, Route } from 'react-router';
 import App from './App';
-import PersonalInfo from '../components/PersonalInfo';
+import Customer from '../components/Customer';
 import SpouseInfo from '../components/SpouseInfo';
 import DependentInfo from '../components/DependentInfo';
 import EmploymentInfo from '../components/EmploymentInfo';
@@ -10,7 +10,7 @@ import Test from '../components/Test';
 
 const routes = (
   <Route path="/" component={App}>
-    <Route path="personal" component={PersonalInfo} />
+    <Route path="personal" component={Customer} />
     <Route path="spouse" component={SpouseInfo} />
     <Route path="dependents" component={DependentInfo} />
     <Route path="employment" component={EmploymentInfo} />

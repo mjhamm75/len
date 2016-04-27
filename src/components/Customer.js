@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { routeActions } from 'redux-simple-router'
 import { updatePersonalInfo } from './../actions/Actions'
 
-import Contact from './Contact';
+import CustomerInfo from './CustomerInfo';
 import Address from './Address';
 import Married from './Married';
 
@@ -12,7 +12,7 @@ class PersonalInfo extends Component {
     return (
       <div>
         <div className="flex">
-          <Contact
+          <CustomerInfo
             onChange={this.onChange.bind(this)}
           />
           <Address

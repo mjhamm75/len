@@ -1,14 +1,11 @@
 import React, { Component } from 'react';
 import MaskedInput from 'react-maskedinput';
+import { connect } from 'react-redux';
 
 import Calendar from './Calendar';
 import MultiAdd from './MultiAdd';
 
 class Contact extends Component {
-  constructor() {
-    super();
-    this.onChange = this.onChange.bind(this);
-  }
   render() {
     return (
       <div>
