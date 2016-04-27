@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { routeActions } from 'redux-simple-router'
 import { connect } from 'react-redux';
 
-import Contact from './CustomerInfo';
+import CustomerInfo from './CustomerInfo';
 import Address from './Address';
 import Married from './Married';
 import { syncAddress, updateSpouseInfo } from './../actions/Actions'

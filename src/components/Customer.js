@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { routeActions } from 'redux-simple-router'
-import { updatePersonalInfo } from './../actions/Actions'
+import { updateCustomer } from './../actions/Actions'
 
 import CustomerInfo from './CustomerInfo';
 import Address from './Address';
 import Married from './Married';
 
-class PersonalInfo extends Component {
+class Customer extends Component {
   render() {
     return (
       <div>
@@ -16,7 +16,7 @@ class PersonalInfo extends Component {
             onChange={this.onChange.bind(this)}
           />
           <Address
-            address={this.props.personalInfo.address}
+            address={this.props.customer.address}
             onChange={this.onChange.bind(this)}
           />
           <Married
@@ -29,11 +29,11 @@ class PersonalInfo extends Component {
   }
 
   onChange(obj) {
-    this.props.dispatch(updatePersonalInfo(obj));
+    this.props.dispatch(updateCustomer(obj));
   }
 
   continue() {
-    if(this.props.personalInfo.marriage === 'married') {
+    if(this.props.customer.marriage === 'married') {
       this.props.dispatch(routeActions.push('/spouse'));
     } else {
       this.props.dispatch(routeActions.push('/dependents'));
@@ -43,8 +43,8 @@ class PersonalInfo extends Component {
 
 function mapStateToProps(state) {
   return {
-    personalInfo: state.personalInfo
+    customer: state.customer
   }
 }
 
-export default connect(mapStateToProps)(PersonalInfo);
+export default connect(mapStateToProps)(Customer);

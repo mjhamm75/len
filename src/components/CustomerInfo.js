@@ -13,6 +13,7 @@ class Contact extends Component {
           <label>Name</label>
           <input
             onChange={this.onChange.bind(this, "name")}
+            value={this.props.customer.name}
           />
         </div>
         <div className="field">
@@ -84,4 +85,10 @@ class Contact extends Component {
   }
 }
 
-export default Contact;
+function mapStateToProps(state) {
+  return {
+    customer: state.customer
+  }
+}
+
+export default connect(mapStateToProps)(Contact);

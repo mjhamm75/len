@@ -1,4 +1,4 @@
-import { UPDATE_PERSONAL_INFO } from '../constants/ActionTypes';
+import { UPDATE_CUSTOMER_INFO } from '../constants/ActionTypes';
 
 let defaultState = {
 	name: null,
@@ -18,7 +18,7 @@ let defaultState = {
 
 export default function personalInfo(state = defaultState, action) {
 	switch(action.type) {
-		case UPDATE_PERSONAL_INFO:
+		case UPDATE_CUSTOMER_INFO:
 			return {
 				...state,
 				...action.info
