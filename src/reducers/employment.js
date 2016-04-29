@@ -1,4 +1,4 @@
-import { UPDATE_EMPLOYMENT_INFO } from '../constants/ActionTypes';
+import { UPDATE_EMPLOYMENT } from '../constants/ActionTypes';
 
 function createNestedObject(state, type, key, value) {
 	if(!state[type]) {
@@ -8,11 +8,15 @@ function createNestedObject(state, type, key, value) {
 	return state;
 }
 
-export default function employmentInfo(state = {}, action) {
+const defaultState = [];
+
+export default function employmentInfo(state = defaultState, action) {
 	switch(action.type) {
-		case UPDATE_EMPLOYMENT_INFO:
+		case UPDATE_EMPLOYMENT:
 			state = createNestedObject(state, action.employmentType, action.key, action.value);
-			return Object.assign({}, state);
+			return {
+				...state
+			};
 		default:
 			return state;
 	}

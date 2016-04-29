@@ -1,7 +1,7 @@
 import {
   ADD_DEPENDENT,
   SYNC_ADDRESS,
-  UPDATE_EMPLOYMENT_INFO,
+  UPDATE_EMPLOYMENT,
   UPDATE_CLIENT,
   UPDATE_SPOUSE,
   UPDATE_DEPENDENT_INFO
@@ -43,9 +43,9 @@ export function addDependent() {
   }
 }
 
-export function updateEmploymentInfo(employmentType, key, value) {
+export function updateEmployment(employmentType, key, value) {
   return {
-    type: UPDATE_EMPLOYMENT_INFO,
+    type: UPDATE_EMPLOYMENT,
     employmentType,
     key,
     value

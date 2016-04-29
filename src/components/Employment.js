@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { updateEmploymentInfo } from './../actions/Actions';
+import { updateEmployment } from './../actions/Actions';
 import { routeActions } from 'redux-simple-router';
 import EmployerFormField from './EmployerFormField';
 
@@ -17,7 +17,7 @@ class EmploymentInfo extends Component {
 	}
 
 	render() {
-		let married = this.props.personalInfo.marriage === "married" ? true : false;
+		let married = this.props.client.marriage === "married" ? true : false;
 		let marriedDOM = married ? this.renderSpouseEmployer(married) : null;
 		let employerDOM = this.renderEmployer('employers');
 		return (
@@ -76,7 +76,7 @@ class EmploymentInfo extends Component {
 			wage,
 			period
 		}
-		this.props.dispatch(updateEmploymentInfo(type, index, employer));
+		this.props.dispatch(updateEmployment(type, index, employer));
 	}
 
 	saveAndContinue() {
@@ -85,9 +85,9 @@ class EmploymentInfo extends Component {
 }
 
 function mapStateToProps(state) {
-  let personalInfo = state.personalInfo;
   return {
-    personalInfo
+		client: state.client,
+    employement: state.employment
   }
 }
 
