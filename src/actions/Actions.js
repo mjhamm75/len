@@ -28,7 +28,7 @@ export function updateSpouse(info) {
   }
 }
 
-export function updateDependentInfo(key, value) {
+export function updateDependent(key, value) {
   return {
     type: UPDATE_DEPENDENT_INFO,
     key,

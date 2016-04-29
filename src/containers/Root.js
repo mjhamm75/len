@@ -3,7 +3,7 @@ import { Router, Route } from 'react-router';
 import App from './App';
 import Client from '../components/Client';
 import Spouse from '../components/Spouse';
-import DependentInfo from '../components/DependentInfo';
+import Dependents from '../components/Dependents';
 import EmploymentInfo from '../components/EmploymentInfo';
 import PropertyInfo from '../components/PropertyInfo';
 import Test from '../components/Test';
@@ -12,7 +12,7 @@ const routes = (
   <Route path="/" component={App}>
     <Route path="personal" component={Client} />
     <Route path="spouse" component={Spouse} />
-    <Route path="dependents" component={DependentInfo} />
+    <Route path="dependents" component={Dependents} />
     <Route path="employment" component={EmploymentInfo} />
     <Route path="property" component={PropertyInfo} />
     <Route path="test" component={Test} />

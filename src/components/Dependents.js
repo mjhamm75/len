@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { updateDependentInfo } from './../actions/Actions';
+import { updateDependent } from './../actions/Actions';
 import { connect } from 'react-redux';
 import { routeActions } from 'redux-simple-router'
 import DependentFormField from './DependentFormField';
@@ -28,7 +28,7 @@ class DependentInfo extends Component {
 			age,
 			relationship
 		}
-		this.props.dispatch(updateDependentInfo(index, dependent));
+		this.props.dispatch(updateDependent(index, dependent));
 	}
 
 	renderDependents(count) {
