@@ -2,30 +2,34 @@ import React, { Component } from 'react';
 import { debounce } from './../utils';
 
 export default class DependentFormField extends Component {
-	constructor() {
-		super();
-		this.updateDependent = this.updateDependent.bind(this);
-		this.updateDependent = debounce(this.updateDependent, 250);
-	}
 	render() {
-		let index = this.props.index;
+		let { dependent, index } = this.props;
 		return (
-			<div>
+			<div className="dependent">
 				<label>Dependent {index + 1}</label>
-				<br />
-				<label>name</label>
-				<input ref="name" onChange={this.updateDependent}/>
-				<br />
-				<label>age</label>
-				<input ref="age" onChange={this.updateDependent}/>
-				<br />
-				<label>relationship</label>
-				<input ref="relationship" onChange={this.updateDependent}/>
+				<label>Name</label>
+				<input
+					onChange={this.updateDependent.bind(this)}
+					ref="name"
+					value={dependent.name}
+				/>
+				<label>Age</label>
+				<input
+					onChange={this.updateDependent.bind(this)}
+					ref="age"
+					value={dependent.age}
+				/>
+				<label>Relationship</label>
+				<input
+					onChange={this.updateDependent.bind(this)}
+					ref="relationship"
+					value={dependent.relationship}
+				/>
 			</div>
 		)
 	}
 
 	updateDependent() {
-		this.props.updateDependent(this.refs.name.value, this.refs.age.value, this.refs.relationship.value, this.props.index + 1);
+		this.props.updateDependent(this.refs.name.value, this.refs.age.value, this.refs.relationship.value, this.props.index);
 	}
 }

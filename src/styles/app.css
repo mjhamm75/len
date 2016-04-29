@@ -67,7 +67,6 @@ input {
   box-shadow: 0 2px 4px 0 rgba(0,0,0,.24);
   display: table;
   font-size: 17px;
-  margin: 0 auto;
   padding: 11px 30px;
   text-align: center;
   text-decoration: none;
@@ -87,4 +86,8 @@ input {
 }
 .rows input {
   margin-bottom: 8px;
+}
+.dependent {
+  margin-top: 15px;
+  margin-bottom: 25px;
 }
