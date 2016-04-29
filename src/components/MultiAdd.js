@@ -2,10 +2,10 @@ import React, { Component } from 'react';
 import MaskedInput from 'react-maskedinput';
 
 class MultiAdd extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
-      rows: []
+      rows: props.values
     }
   }
 
@@ -26,6 +26,7 @@ class MultiAdd extends Component {
                   key={index}
                   mask={this.props.mask}
                   onChange={this.onUnmask.bind(this, index)}
+                  value={row.value}
                 />
       });
     } else {
@@ -33,6 +34,7 @@ class MultiAdd extends Component {
         return <input
                   key={index}
                   onChange={this.onChange.bind(this, index, event)}
+                  value={row.value}
                 />
       });
     }
@@ -41,7 +43,10 @@ class MultiAdd extends Component {
   onUnmask(index, event) {
     let value = event.target.value.replace(/\D/g,'');
     let rows = this.state.rows;
-    rows[index] = value;
+    rows[index] = {
+      name: index,
+      value: value
+    }
     this.setState({
       rows: rows
     }, this.updateMultiAdd.bind(this));
@@ -50,7 +55,10 @@ class MultiAdd extends Component {
   onChange(index, event) {
     let value = event.target.value;
     let rows = this.state.rows;
-    rows[index] = value;
+    rows[index] = {
+      name: index,
+      value: value
+    }
     this.setState({
       rows: rows
     }, this.updateMultiAdd.bind(this));
