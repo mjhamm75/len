@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Router, Route } from 'react-router';
-import App from './App';
+import App from './app';
 import Client from '../components/Client';
 import Spouse from '../components/Spouse';
 import Dependents from '../components/Dependents';
