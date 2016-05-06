@@ -1,56 +1,45 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router';
 import { connect } from 'react-redux';
-import { updateEmployment } from './../actions/Actions';
+import { addEmployement, updateEmployment } from './../actions/Actions';
 import { routeActions } from 'redux-simple-router';
 import EmployerFormField from './EmployerFormField';
 
 class EmploymentInfo extends Component {
-	constructor() {
-		super();
-		this.state = {
-			employers: [],
-			spouseEmployers: []
-		}
-		this.addEmployer = this.addEmployer.bind(this);
-		this.updateEmployer = this.updateEmployer.bind(this);
-		this.saveAndContinue = this.saveAndContinue.bind(this);
-	}
-
 	render() {
 		let married = this.props.client.marriage === "married" ? true : false;
 		let marriedDOM = married ? this.renderSpouseEmployer(married) : null;
-		let employerDOM = this.renderEmployer('employers');
+		let employerDOM = this.renderEmployer(this.props.employment.client);
 		return (
 			<div>
 				<h2>Employment Info</h2>
-				<button className="pure-button" onClick={() => this.addEmployer('employers')}>Add Employer</button>
-				<form className="pure-form pure-form-stacked">
+				<button className="button" onClick={this.addEmployer.bind(this, 'client')}>Add Employer</button>
 					{employerDOM}
-				</form>
-				<form className="pure-form pure-form-stacked">
 					{marriedDOM}
-				</form>
-				<br />
-				<button className="pure-button" onClick={this.saveAndContinue}>Save and Continue</button>
+				<Link to="property" className="button pull-right">Save and Continue</Link>
 			</div>
 		)
 	}
 
-	renderEmployer(type) {
-		return this.state[type].map((employer, i) => {
+	renderEmployer(employers) {
+		return employers.map((employer, i) => {
 			return (
-				<EmployerFormField key={i} index={i} updateEmployer={this.updateEmployer} type={type}/>
+				<EmployerFormField
+					index={i}
+					key={i}
+					updateEmployer={this.updateEmployer.bind(this)} type={type}
+				/>
 			)
 		});
 	}
 
 	renderSpouseEmployer(married) {
-		let spouseEmployerDOM = this.renderEmployer('spouseEmployers');
+		let spouseEmployerDOM = this.renderEmployer(this.props.employment.spouse);
 		if(married) {
 			return (
 				<div>
 					<h3>Spouse</h3>
-					<button onClick={() => this.addEmployer('spouseEmployers')} >Add Employer</button>
+					<button className="button" onClick={this.addEmployer.bind(this, 'spouse')} >Add Employer</button>
 					{spouseEmployerDOM}
 				</div>
 			)
@@ -58,16 +47,7 @@ class EmploymentInfo extends Component {
 	}
 
 	addEmployer(type) {
-		this.state[type].push(1);
-		if(type === "employers") {
-			this.setState({
-				employers: this.state[type]
-			});
-		} else {
-			this.setState({
-				spouseEmployers: this.state[type]
-			});
-		}
+		this.props.dispatch(addEmployement(type));
 	}
 
 	updateEmployer(name, wage, period, type, index) {
@@ -78,16 +58,12 @@ class EmploymentInfo extends Component {
 		}
 		this.props.dispatch(updateEmployment(type, index, employer));
 	}
-
-	saveAndContinue() {
-		this.props.dispatch(routeActions.push('/property'))
-	}
 }
 
 function mapStateToProps(state) {
   return {
 		client: state.client,
-    employement: state.employment
+    employment: state.employment
   }
 }
 
