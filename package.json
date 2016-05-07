@@ -4,8 +4,8 @@
   "description": "Counter example for redux",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js",
-    "build": "NODE_ENV=production && webpack && node server.js"
+    "start": "webpack && node server.js",
+    "build": "webpack && node server.js"
   },
   "repository": {
     "type": "git",
