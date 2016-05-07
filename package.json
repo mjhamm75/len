@@ -4,7 +4,7 @@
   "description": "Counter example for redux",
   "main": "server.js",
   "scripts": {
-    "start": "webpack && node server.js",
+    "start": "webpack --config webpack.prod.js && node server.js",
     "build": "webpack && node server.js"
   },
   "repository": {
