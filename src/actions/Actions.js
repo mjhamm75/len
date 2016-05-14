@@ -5,7 +5,7 @@ import {
   UPDATE_EMPLOYMENT,
   UPDATE_CLIENT,
   UPDATE_SPOUSE,
-  UPDATE_DEPENDENT_INFO
+  UPDATE_DEPENDENT
 } from '../constants/ActionTypes';
 
 export function addDependent() {
@@ -37,7 +37,7 @@ export function updateClient(info) {
 
 export function updateDependent(key, dependent) {
   return {
-    type: UPDATE_DEPENDENT_INFO,
+    type: UPDATE_DEPENDENT,
     key,
     dependent
   }

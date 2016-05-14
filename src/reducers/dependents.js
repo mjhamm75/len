@@ -1,10 +1,10 @@
-import { ADD_DEPENDENT, UPDATE_DEPENDENT_INFO } from '../constants/ActionTypes';
+import { ADD_DEPENDENT, UPDATE_DEPENDENT } from '../constants/ActionTypes';
 
 const defaultState = [];
 
 export default function dependents(state = defaultState, action) {
 	switch(action.type) {
-		case UPDATE_DEPENDENT_INFO:
+		case UPDATE_DEPENDENT:
 			state[action.key] = action.dependent;
 			return [
 				...state
