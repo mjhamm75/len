@@ -7,9 +7,9 @@ import EmployerFormField from './EmployerFormField';
 
 class EmploymentInfo extends Component {
 	render() {
-		let married = this.props.client.marriage === "married" ? true : false;
-		let marriedDOM = married ? this.renderSpouseEmployer(married) : null;
-		let employerDOM = this.renderEmployer(this.props.employment.client);
+		let isMarried = this.props.client.marriage === "married" ? true : false;
+		let marriedDOM = isMarried ? this.renderSpouseEmployer(married) : null;
+		let employerDOM = this.renderEmployer(this.props.employment.client, "client");
 		return (
 			<div>
 				<h2>Employment Info</h2>
@@ -21,20 +21,21 @@ class EmploymentInfo extends Component {
 		)
 	}
 
-	renderEmployer(employers) {
+	renderEmployer(employers, type) {
 		return employers.map((employer, i) => {
 			return (
 				<EmployerFormField
 					index={i}
 					key={i}
-					updateEmployer={this.updateEmployer.bind(this)} type={type}
+					updateEmployer={this.updateEmployer.bind(this)}
+					type={type}
 				/>
 			)
 		});
 	}
 
 	renderSpouseEmployer(married) {
-		let spouseEmployerDOM = this.renderEmployer(this.props.employment.spouse);
+		let spouseEmployerDOM = this.renderEmployer(this.props.employment.spouse, "spouse");
 		if(married) {
 			return (
 				<div>

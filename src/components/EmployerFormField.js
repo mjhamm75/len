@@ -5,7 +5,7 @@ class EmployerFormField extends Component {
 	constructor() {
 		super();
 		this.updateEmployer = this.updateEmployer.bind(this);
-		this.updateEmployer = debounce(this.updateEmployer, 250);	
+		this.updateEmployer = debounce(this.updateEmployer, 250);
 	}
 
 	render() {

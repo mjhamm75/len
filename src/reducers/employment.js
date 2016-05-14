@@ -17,10 +17,11 @@ export default function employmentInfo(state = defaultState, action) {
 	switch(action.type) {
 		case ADD_EMPLOYMENT:
 			let employment = {}
-			let employers = state[action.employmentType];
+			let employers = state[action.employmentType].push(employment);
 
 			return {
-				...state
+				...state,
+				...employers
 			};
 		case UPDATE_EMPLOYMENT:
 			state = createNestedObject(state, action.employmentType, action.key, action.value);
