@@ -5,7 +5,7 @@ const defaultState = {
 	spouse: []
 };
 
-export default function employmentInfo(state = defaultState, action) {
+export default function employment(state = defaultState, action) {
 	switch(action.type) {
 		case ADD_EMPLOYMENT:
 			let employment = {}

@@ -1,6 +1,7 @@
 import {
   ADD_DEPENDENT,
   ADD_EMPLOYMENT,
+  ADD_PROPERTY,
   SYNC_ADDRESS,
   UPDATE_EMPLOYMENT,
   UPDATE_CLIENT,
@@ -56,5 +57,11 @@ export function updateSpouse(info) {
   return {
     type: UPDATE_SPOUSE,
     info
+  }
+}
+
+export function addProperty() {
+  return {
+    type: ADD_PROPERTY
   }
 }

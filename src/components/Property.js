@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+
 import PropertyFormField from './PropertyFormField';
+import { addProperty } from '../actions/Actions';
 
 class Property extends Component {
 	constructor() {
@@ -12,14 +15,11 @@ class Property extends Component {
 	}
 
 	addProperty() {
-		this.state.properties.push(1);
-		this.setState({
-			properties: this.state.properties
-		})
+		this.props.dispatch(addProperty());
 	}
 
 	render() {
-		let propertiesDOM = this.renderProperties(this.state.properties);
+		let propertiesDOM = this.renderProperties(this.props.properties);
 		return (
 			<div>
 				<h2>Property Information</h2>
@@ -41,4 +41,10 @@ class Property extends Component {
 	}
 }
 
-export default Property;
+function mapStateToProps(state) {
+  return {
+    properties: state.properties
+  }
+}
+
+export default connect(mapStateToProps)(Property);
