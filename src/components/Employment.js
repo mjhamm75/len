@@ -25,10 +25,11 @@ class EmploymentInfo extends Component {
 		return employers.map((employer, i) => {
 			return (
 				<EmployerFormField
+					employer={employer}
 					index={i}
 					key={i}
-					updateEmployer={this.updateEmployer.bind(this)}
 					type={type}
+					updateEmployer={this.updateEmployer.bind(this)}
 				/>
 			)
 		});
@@ -57,7 +58,7 @@ class EmploymentInfo extends Component {
 			wage,
 			period
 		}
-		this.props.dispatch(updateEmployment(type, index, employer));
+		this.props.dispatch(updateEmployment(type, index - 1, employer));
 	}
 }
 

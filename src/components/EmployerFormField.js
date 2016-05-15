@@ -2,27 +2,34 @@ import React, { Component } from 'react';
 import { debounce } from './../utils';
 
 class EmployerFormField extends Component {
-	constructor() {
-		super();
-		this.updateEmployer = this.updateEmployer.bind(this);
-		this.updateEmployer = debounce(this.updateEmployer, 250);
-	}
-
 	render() {
-		var index = this.props.index;
+		var { employer, index } = this.props;
+
 		return (
 			<div>
 				<label>Employer</label>
-				<input ref="name" onChange={this.updateEmployer} />
+				<input
+					onChange={this.updateEmployer.bind(this)}
+					ref="name"
+					value={employer.name}
+				/>
 				<label>Wage</label>
-				<input ref="wage" onChange={this.updateEmployer} />
+				<input
+					onChange={this.updateEmployer.bind(this)}
+					ref="wage"
+					value={employer.wage}
+				/>
 				<label>Period</label>
-				<input ref="period" onChange={this.updateEmployer} />
+				<input
+					onChange={this.updateEmployer.bind(this)}
+					ref="period"
+					value={employer.period}
+				/>
 			</div>
 		)
 	}
 
-	updateEmployer() {
+	updateEmployer(event) {
 		this.props.updateEmployer(this.refs.name.value, this.refs.wage.value, this.refs.period.value, this.props.type, this.props.index + 1);
 	}
 }

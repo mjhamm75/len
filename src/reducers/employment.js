@@ -1,13 +1,5 @@
 import { ADD_EMPLOYMENT, UPDATE_EMPLOYMENT } from '../constants/ActionTypes';
 
-function createNestedObject(state, type, key, value) {
-	if(!state[type]) {
-		state[type] = {};
-	}
-	state[type][key] = value;
-	return state;
-}
-
 const defaultState = {
 	client: [],
 	spouse: []
@@ -24,7 +16,7 @@ export default function employmentInfo(state = defaultState, action) {
 				...employers
 			};
 		case UPDATE_EMPLOYMENT:
-			state = createNestedObject(state, action.employmentType, action.key, action.value);
+			state[action.employmentType][action.key] = action.value
 			return {
 				...state
 			};
