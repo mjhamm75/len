@@ -5,7 +5,7 @@ import Client from '../components/Client';
 import Spouse from '../components/Spouse';
 import Dependents from '../components/Dependents';
 import Employment from '../components/Employment';
-import PropertyInfo from '../components/PropertyInfo';
+import Property from '../components/Property';
 
 const routes = (
   <Route path="/" component={App}>
@@ -13,7 +13,7 @@ const routes = (
     <Route path="spouse" component={Spouse} />
     <Route path="dependents" component={Dependents} />
     <Route path="employment" component={Employment} />
-    <Route path="property" component={PropertyInfo} />
+    <Route path="property" component={Property} />
   </Route>
 )
 export default class Root extends Component {

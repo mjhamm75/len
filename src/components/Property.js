@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropertyFormField from './PropertyFormField';
 
-class PropertyInfo extends Component {
+class Property extends Component {
 	constructor() {
 		super();
 		this.state = {
@@ -43,4 +43,4 @@ class PropertyInfo extends Component {
 	}
 }
 
-export default PropertyInfo;
+export default Property;
