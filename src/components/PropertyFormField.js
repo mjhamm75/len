@@ -9,12 +9,9 @@ class PropertyFormField extends Component {
 		}
 		return result;
 	}
- 	updateMortgages(event) {
- 		let arr = this.createArray(event.target.value);
-		let mortgages = this.state.mortgages.concat(arr);
-		this.setState({
-			mortgages
-		})
+
+ 	addMortgages(event) {
+
 	}
 
 	render() {
@@ -38,7 +35,7 @@ class PropertyFormField extends Component {
 					/>
 					<br />
 					<label>Number of Mortgages</label>
-					<select onChange={this.updateMortgages.bind(this)}>
+					<select onChange={this.addMortgages.bind(this)}>
 						<option>--</option>
 						<option>1</option>
 						<option>2</option>
