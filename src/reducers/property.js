@@ -1,4 +1,4 @@
-import { ADD_PROPERTY } from '../constants/ActionTypes';
+import { ADD_PROPERTY, UPDATE_PROPERTY } from '../constants/ActionTypes';
 
 const defaultState = [];
 
@@ -12,6 +12,9 @@ export default function property(state = defaultState, action) {
       state.push(property)
       return [...state]
       break;
+		case UPDATE_PROPERTY:
+			state[action.index] = action.property;
+			return [...state];
 		default:
 			return state;
 	}

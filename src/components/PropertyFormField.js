@@ -2,16 +2,6 @@ import React, { Component } from 'react';
 import { debounce } from './../utils';
 
 class PropertyFormField extends Component {
-	constructor() {
-		super();
-		this.state = {
-			mortgages: []
-		}
-		this.updateMortgages = this.updateMortgages.bind(this);
-		this.updateProperty = this.updateProperty.bind(this);
-		this.updateProperty = debounce(this.updateProperty, 250);
-	}
-
 	createArray(count) {
 		let result = [];
 		for(let i = 0; i < count; i++) {
@@ -28,19 +18,27 @@ class PropertyFormField extends Component {
 	}
 
 	render() {
-		let mortgagesDOM = this.renderMortgages(this.state.mortgages);
+		let mortgagesDOM = this.renderMortgages(this.props.property.mortgages);
 		return (
 			<div>
 				<h4>Property {this.props.index + 1}</h4>
 				<form>
 					<label>Property Address</label>
-					<input ref="address" onChange={this.updateProperty}/>
+					<input
+						onChange={this.updateProperty.bind(this, this.props.index)}
+						ref="address"
+						value={this.props.property.address}
+					/>
 					<br />
 					<label>Current Value</label>
-					<input ref="currentValue" onChange={this.updateProperty}/>
+					<input
+						onChange={this.updateProperty.bind(this, this.props.index)}
+						ref="currentValue"
+						value={this.props.property.currentValue}
+					/>
 					<br />
 					<label>Number of Mortgages</label>
-					<select onChange={this.updateMortgages}>
+					<select onChange={this.updateMortgages.bind(this)}>
 						<option>--</option>
 						<option>1</option>
 						<option>2</option>
@@ -71,13 +69,13 @@ class PropertyFormField extends Component {
 		});
 	}
 
-	updateProperty() {
+	updateProperty(index) {
 		let property = {
 			address: this.refs.address.value,
 			currentValue: this.refs.currentValue.value,
-			mortgages: this.state.mortgages
+			mortgages: []
 		}
-		debugger;
+		this.props.updateProperty(index, property);
 	}
 
 	updateMortgage() {

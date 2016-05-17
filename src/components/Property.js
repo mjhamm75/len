@@ -2,18 +2,9 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import PropertyFormField from './PropertyFormField';
-import { addProperty } from '../actions/Actions';
+import { addProperty, updateProperty } from '../actions/Actions';
 
 class Property extends Component {
-	constructor() {
-		super();
-		this.state = {
-			properties: []
-		};
-		this.addProperty = this.addProperty.bind(this);
-		this.updateProperty = this.updateProperty.bind(this);
-	}
-
 	addProperty() {
 		this.props.dispatch(addProperty());
 	}
@@ -24,7 +15,9 @@ class Property extends Component {
 			<div>
 				<h2>Property Information</h2>
 				<h4>Real estate</h4>
-				<button className="button" onClick={this.addProperty}>Add property</button>
+				<button
+					className="button"
+					onClick={this.addProperty.bind(this)}>Add property</button>
 					{propertiesDOM}
 			</div>
 		)
@@ -32,12 +25,17 @@ class Property extends Component {
 
 	renderProperties(properties) {
 		return properties.map((property, i) => {
-			return <PropertyFormField key={i} index={i} updateProperty={this.updateProperty}/>
+			return <PropertyFormField
+								index={i}
+								key={i}
+								property={property}
+								updateProperty={this.updateProperty.bind(this)}
+							/>
 		});
 	}
 
-	updateProperty() {
-		debugger;
+	updateProperty(index, property) {
+		this.props.dispatch(updateProperty(index, property));
 	}
 }
 

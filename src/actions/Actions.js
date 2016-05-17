@@ -6,7 +6,8 @@ import {
   UPDATE_EMPLOYMENT,
   UPDATE_CLIENT,
   UPDATE_SPOUSE,
-  UPDATE_DEPENDENT
+  UPDATE_DEPENDENT,
+  UPDATE_PROPERTY
 } from '../constants/ActionTypes';
 
 export function addDependent() {
@@ -63,5 +64,13 @@ export function updateSpouse(info) {
 export function addProperty() {
   return {
     type: ADD_PROPERTY
+  }
+}
+
+export function updateProperty(index, property) {
+  return {
+    type: UPDATE_PROPERTY,
+    index, 
+    property
   }
 }

@@ -6,3 +6,4 @@ export const UPDATE_CLIENT = Symbol();
 export const UPDATE_SPOUSE = Symbol();
 export const UPDATE_DEPENDENT = Symbol();
 export const UPDATE_EMPLOYMENT = Symbol();
+export const UPDATE_PROPERTY = Symbol();
