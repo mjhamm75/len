@@ -2,16 +2,8 @@ import React, { Component } from 'react';
 import { debounce } from './../utils';
 
 class PropertyFormField extends Component {
-	createArray(count) {
-		let result = [];
-		for(let i = 0; i < count; i++) {
-			result.push(i);
-		}
-		return result;
-	}
-
- 	addMortgages(event) {
-
+ 	addMortgages() {
+		this.props.addMortgage(this.props.index);
 	}
 
 	render() {
@@ -49,18 +41,30 @@ class PropertyFormField extends Component {
 	}
 
 	renderMortgages(mortgages) {
-		return mortgages.map((mortgage, i) => {
+		return mortgages.map((mortgage, index) => {
 			return (
-				<div>
-					<h5>Lender {i + 1}</h5>
+				<div key={index}>
+					<h5>Lender {index + 1}</h5>
 					<label>Lender</label>
-					<input ref="lender" onChange={this.updateMortgage}/>
+					<input
+						onChange={this.updateMortgage.bind(this, this.props.index, index)}
+						ref="lender"
+						value={mortgage.lender}
+					/>
 					<br />
 					<label>Mortgage</label>
-					<input ref="amount" onChange={this.updateMortgage}/>
+					<input
+						onChange={this.updateMortgage.bind(this, this.props.index, index)}
+						ref="amount"
+						value={mortgage.amount}
+					/>
 					<br />
 					<label>Monthly Payment</label>
-					<input ref="monthly" onChange={this.updateMortgage}/>
+					<input
+						onChange={this.updateMortgage.bind(this, this.props.index, index)}
+						ref="monthly"
+						value={mortgage.monthly}
+					/>
 				</div>
 			)
 		});
@@ -75,8 +79,13 @@ class PropertyFormField extends Component {
 		this.props.updateProperty(index, property);
 	}
 
-	updateMortgage() {
-		debugger;
+	updateMortgage(propertyIndex, mortgageIndex) {
+		let mortgage = {
+				lender: this.refs.lender.value,
+				payoff: this.refs.amount.value,
+				monthly: this.refs.monthly.value
+		}
+		this.props.updateMortgage(propertyIndex, mortgageIndex, mortgage);
 	}
 }
 

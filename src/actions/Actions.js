@@ -1,12 +1,14 @@
 import {
   ADD_DEPENDENT,
   ADD_EMPLOYMENT,
+  ADD_MORTGAGE,
   ADD_PROPERTY,
   SYNC_ADDRESS,
   UPDATE_EMPLOYMENT,
   UPDATE_CLIENT,
   UPDATE_SPOUSE,
   UPDATE_DEPENDENT,
+  UPDATE_MORTGAGE,
   UPDATE_PROPERTY
 } from '../constants/ActionTypes';
 
@@ -67,10 +69,26 @@ export function addProperty() {
   }
 }
 
+export function addMortgage(index) {
+  return {
+    type: ADD_MORTGAGE,
+    index
+  }
+}
+
 export function updateProperty(index, property) {
   return {
     type: UPDATE_PROPERTY,
-    index, 
+    index,
     property
+  }
+}
+
+export function updateMortgage(propertyIndex, mortgageIndex, mortgage) {
+  return {
+    type: UPDATE_MORTGAGE,
+    propertyIndex,
+    mortgageIndex,
+    mortgage
   }
 }

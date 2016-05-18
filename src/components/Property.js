@@ -2,11 +2,15 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import PropertyFormField from './PropertyFormField';
-import { addProperty, updateProperty } from '../actions/Actions';
+import { addMortgage, addProperty, updateMortgage, updateProperty } from '../actions/Actions';
 
 class Property extends Component {
 	addProperty() {
 		this.props.dispatch(addProperty());
+	}
+
+	addMortgage(index) {
+		this.props.dispatch(addMortgage(index));
 	}
 
 	render() {
@@ -26,9 +30,11 @@ class Property extends Component {
 	renderProperties(properties) {
 		return properties.map((property, i) => {
 			return <PropertyFormField
+								addMortgage={this.addMortgage.bind(this)}
 								index={i}
 								key={i}
 								property={property}
+								updateMortgage={this.updateMortgage.bind(this)}
 								updateProperty={this.updateProperty.bind(this)}
 							/>
 		});
@@ -36,6 +42,10 @@ class Property extends Component {
 
 	updateProperty(index, property) {
 		this.props.dispatch(updateProperty(index, property));
+	}
+
+	updateMortgage(propertyIndex, mortgageIndex, mortgage) {
+		this.props.dispatch(updateMortgage(propertyIndex, mortgageIndex, mortgage))
 	}
 }
 

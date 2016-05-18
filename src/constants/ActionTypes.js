@@ -1,9 +1,11 @@
 export const ADD_DEPENDENT = Symbol();
 export const ADD_EMPLOYMENT = Symbol();
+export const ADD_MORTGAGE = Symbol();
 export const ADD_PROPERTY = Symbol();
 export const SYNC_ADDRESS = Symbol();
 export const UPDATE_CLIENT = Symbol();
 export const UPDATE_SPOUSE = Symbol();
 export const UPDATE_DEPENDENT = Symbol();
 export const UPDATE_EMPLOYMENT = Symbol();
+export const UPDATE_MORTGAGE = Symbol();
 export const UPDATE_PROPERTY = Symbol();
