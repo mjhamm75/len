@@ -6,6 +6,7 @@ import Spouse from '../components/Spouse';
 import Dependents from '../components/Dependents';
 import Employment from '../components/Employment';
 import Property from '../components/Property';
+import Upload from '../components/Upload';
 
 const routes = (
   <Route path="/" component={App}>
@@ -14,6 +15,7 @@ const routes = (
     <Route path="dependents" component={Dependents} />
     <Route path="employment" component={Employment} />
     <Route path="property" component={Property} />
+    <Route path="upload" component={Upload} />
   </Route>
 )
 export default class Root extends Component {

@@ -91,3 +91,16 @@ input {
   margin-top: 15px;
   margin-bottom: 25px;
 }
+.drop-container div {
+  height: 125px !important;
+  margin: 0 auto;
+  cursor: pointer;
+  width: 350px !important;
+  border-color: #7B7B7B !important;
+}
+.drop-container .text {
+  align-items: center;
+  color: #7B7B7B;
+  display: flex;
+  justify-content: center;
+}

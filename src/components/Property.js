@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router';
 import { connect } from 'react-redux';
 
 import PropertyFormField from './PropertyFormField';
@@ -23,6 +24,7 @@ class Property extends Component {
 					className="button"
 					onClick={this.addProperty.bind(this)}>Add property</button>
 					{propertiesDOM}
+					<Link to="upload" className="button pull-right">Save and Continue</Link>
 			</div>
 		)
 	}
