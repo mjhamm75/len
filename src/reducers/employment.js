@@ -1,4 +1,7 @@
-import { ADD_EMPLOYMENT, UPDATE_EMPLOYMENT } from '../constants/ActionTypes';
+import {
+	ADD_EMPLOYMENT,
+	UPDATE_EMPLOYMENT
+} from '../constants/ActionTypes';
 
 const defaultState = {
 	client: [],

@@ -1,4 +1,7 @@
-import { UPDATE_SPOUSE, SYNC_ADDRESS } from '../constants/ActionTypes';
+import {
+	SYNC_ADDRESS,
+	UPDATE_SPOUSE 
+} from '../constants/ActionTypes';
 
 let defaultState = {
 	name: null,

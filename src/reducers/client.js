@@ -1,4 +1,6 @@
-import { UPDATE_CLIENT } from '../constants/ActionTypes';
+import {
+	UPDATE_CLIENT
+} from '../constants/ActionTypes';
 
 let defaultState = {
 	name: null,

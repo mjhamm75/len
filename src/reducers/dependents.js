@@ -1,4 +1,7 @@
-import { ADD_DEPENDENT, UPDATE_DEPENDENT } from '../constants/ActionTypes';
+import {
+	ADD_DEPENDENT,
+	UPDATE_DEPENDENT
+} from '../constants/ActionTypes';
 
 const defaultState = [];
 
