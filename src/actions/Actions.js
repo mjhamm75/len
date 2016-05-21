@@ -68,9 +68,15 @@ export function renameFile(index, name) {
 
 export function saveFiles() {
   return (dispatch, state) => {
-    return axios.post({
-      url: '/files',
-      data: state.files
+    let data = new FormData();
+    data.append('files', state.files);
+    let opts = {
+      transformRequest: function(data) { return data; }
+    };
+
+    return axios.post('/files', {
+      data,
+      opts
     }).then(result => {
       return dispatch({
         type: FILES_SAVED

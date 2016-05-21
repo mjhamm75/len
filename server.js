@@ -37,6 +37,10 @@ if(isDevelopment) {
 	})
 }
 
+app.post('/files', function(req, res) {
+	console.log(req.body);
+})
+
 app.listen(PORT, function() {
 	console.log('running on port: ', PORT)
 });
