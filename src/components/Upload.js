@@ -13,7 +13,25 @@ class Upload extends Component {
 
   renderFiles(files) {
     return files.map((file, index) => {
-      return <div><img key={index} src={file.preview} /> )}</div>
+      return (
+        <div key={index}>
+          <div>
+            {file.type === 'application/pdf' ?
+              <embed
+                className="preview"
+                src={file.preview}
+                type={file.type}
+              />
+              :
+              <img
+                className="preview"
+                src={file.preview}
+              />
+            }
+          </div>
+          <br />
+        </div>
+      )
     });
   }
 
@@ -34,8 +52,9 @@ class Upload extends Component {
   }
 
   onDrop(files) {
+    let savedFiles = this.state.files.concat(files)
     this.setState({
-      files: files
+      files: savedFiles
     });
   }
 }
