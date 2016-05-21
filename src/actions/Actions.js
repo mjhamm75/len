@@ -1,4 +1,5 @@
 import axios from 'axios';
+import request from 'superagent';
 
 import {
   ADD_DEPENDENT,
@@ -68,20 +69,29 @@ export function renameFile(index, name) {
 
 export function saveFiles() {
   return (dispatch, state) => {
-    let data = new FormData();
-    data.append('files', state.files);
-    let opts = {
-      transformRequest: function(data) { return data; }
-    };
+    var req = request.post('/files');
+        state().files.forEach((file)=> {
+            req.attach('file', file);
+        });
+        req.end(() => console.log('end'));
 
-    return axios.post('/files', {
-      data,
-      opts
-    }).then(result => {
-      return dispatch({
-        type: FILES_SAVED
-      })
-    })
+
+
+    // let data = new FormData();
+    // data.append('files', state.files);
+    //
+    // return axios({
+    //   method: 'POST',
+    //   url: '/files',
+    //   data,
+    //   headers: {
+    //     'Content-Type': 'multipart/form-data'
+    //   }
+    // }).then(result => {
+    //   return dispatch({
+    //     type: FILES_SAVED
+    //   })
+    // })
   }
 }
 

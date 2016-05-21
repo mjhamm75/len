@@ -1,7 +1,18 @@
 var express = require('express');
 var path = require('path');
 var app = express();
+var multer  = require('multer');
+var storage = multer.memoryStorage()
+var upload = multer({ storage: storage })
 var PORT = process.env.PORT || 3000;
+
+var AWS = require('aws-sdk');
+
+AWS.config.update({
+  region: 'us-west-1'
+})
+var s3bucket = new AWS.S3();
+
 
 var isDevelopment = process.env.NODE_ENV !== 'production';
 
@@ -37,8 +48,22 @@ if(isDevelopment) {
 	})
 }
 
-app.post('/files', function(req, res) {
-	console.log(req.body);
+app.post('/files', upload.any(), function (req, res, next) {
+	var s3params = {
+	  Bucket: 'lenstore',
+		Key: 'test',
+		Body: new Buffer(req.files)
+	};
+	s3bucket.putObject(s3params, function(err, data) {
+    if (err) {
+      console.log("Error uploading data: ", err);
+    } else {
+      console.log("Successfully uploaded data to myBucket/myKey");
+			res.json({
+				is: 'working'
+			})
+    }
+  });
 })
 
 app.listen(PORT, function() {
