@@ -1,7 +1,8 @@
 import {
   ADD_FILE,
   DELETE_FILE,
-  RENAME_FILE
+  RENAME_FILE,
+  SAVE_FILES
 } from '../constants/ActionTypes';
 
 const defaultState = [];

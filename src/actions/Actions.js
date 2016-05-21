@@ -1,3 +1,5 @@
+import axios from 'axios';
+
 import {
   ADD_DEPENDENT,
   ADD_EMPLOYMENT,
@@ -5,6 +7,7 @@ import {
   ADD_MORTGAGE,
   ADD_PROPERTY,
   DELETE_FILE,
+  FILES_SAVED,
   RENAME_FILE,
   SYNC_ADDRESS,
   UPDATE_EMPLOYMENT,
@@ -28,6 +31,19 @@ export function addEmployement(employmentType) {
   }
 }
 
+export function addMortgage(index) {
+  return {
+    type: ADD_MORTGAGE,
+    index
+  }
+}
+
+export function addProperty() {
+  return {
+    type: ADD_PROPERTY
+  }
+}
+
 export function addFile(files) {
   return {
     type: ADD_FILE,
@@ -47,6 +63,19 @@ export function renameFile(index, name) {
     type: RENAME_FILE,
     index,
     name
+  }
+}
+
+export function saveFiles() {
+  return (dispatch, state) => {
+    return axios.post({
+      url: '/files',
+      data: state.files
+    }).then(result => {
+      return dispatch({
+        type: FILES_SAVED
+      })
+    })
   }
 }
 
@@ -81,23 +110,12 @@ export function updateEmployment(employmentType, key, value) {
   }
 }
 
-export function updateSpouse(info) {
+export function updateMortgage(propertyIndex, mortgageIndex, mortgage) {
   return {
-    type: UPDATE_SPOUSE,
-    info
-  }
-}
-
-export function addProperty() {
-  return {
-    type: ADD_PROPERTY
-  }
-}
-
-export function addMortgage(index) {
-  return {
-    type: ADD_MORTGAGE,
-    index
+    type: UPDATE_MORTGAGE,
+    propertyIndex,
+    mortgageIndex,
+    mortgage
   }
 }
 
@@ -109,11 +127,9 @@ export function updateProperty(index, property) {
   }
 }
 
-export function updateMortgage(propertyIndex, mortgageIndex, mortgage) {
+export function updateSpouse(info) {
   return {
-    type: UPDATE_MORTGAGE,
-    propertyIndex,
-    mortgageIndex,
-    mortgage
+    type: UPDATE_SPOUSE,
+    info
   }
 }

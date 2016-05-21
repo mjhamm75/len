@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { addFile, deleteFile, renameFile } from '../actions/Actions';
+import { addFile, deleteFile, renameFile, saveFiles } from '../actions/Actions';
 
 import Dropzone from 'react-dropzone';
 
@@ -73,12 +73,20 @@ class Upload extends Component {
             </div>
           </div>
           {filesDOM}
+          <a
+            className="button"
+            onClick={this.saveFiles.bind(this)}
+          >Save Files</a>
       </div>
     )
   }
 
   onDrop(files) {
     this.props.dispatch(addFile(files));
+  }
+
+  saveFiles() {
+    this.props.dispatch(saveFiles());
   }
 }
 
