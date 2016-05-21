@@ -43,7 +43,7 @@ if(isDevelopment) {
 
 } else {
 	console.log("PROD");
-	app.use('static', express.static('public'));
+	app.use('/static', express.static('public'));
 	app.get('*', function(req, res) {
 		res.sendFile(__dirname + '/public/index.html');
 	})
