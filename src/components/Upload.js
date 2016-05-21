@@ -11,10 +11,43 @@ class Upload extends Component {
     }
   }
 
+  updateFileName(key, event) {
+    let files = this.state.files;
+    files[key].rename = event.currentTarget.value;
+    this.setState({
+      files
+    })
+  }
+
+  deleteFile(key) {
+    let files = this.state.files;
+    files.splice(key, 1);
+    this.setState({
+      files
+    })
+  }
+
   renderFiles(files) {
     return files.map((file, index) => {
       return (
         <div key={index}>
+          <div>
+            {this.state.renameTitle ?
+              <input
+                onBlur={() => this.setState({renameTitle: false})}
+                onChange={this.updateFileName.bind(this, index)}
+                value={file.rename || file.name}
+              />
+              :
+              <h4
+                onClick={() => this.setState({renameTitle: true})}
+              >{file.rename || file.name}</h4>
+            }
+            <div
+              className="close"
+              onClick={this.deleteFile.bind(this, index)}
+            >x</div>
+          </div>
           <div>
             {file.type === 'application/pdf' ?
               <embed

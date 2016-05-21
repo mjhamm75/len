@@ -108,3 +108,9 @@ input {
   height: 120px;
   width: auto;
 }
+.close {
+  cursor: pointer;
+  display: inline;
+  float: left;
+  margin-right: 10px;
+}
