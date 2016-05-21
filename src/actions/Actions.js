@@ -1,8 +1,11 @@
 import {
   ADD_DEPENDENT,
   ADD_EMPLOYMENT,
+  ADD_FILE,
   ADD_MORTGAGE,
   ADD_PROPERTY,
+  DELETE_FILE,
+  RENAME_FILE,
   SYNC_ADDRESS,
   UPDATE_EMPLOYMENT,
   UPDATE_CLIENT,
@@ -22,6 +25,28 @@ export function addEmployement(employmentType) {
   return {
     type: ADD_EMPLOYMENT,
     employmentType
+  }
+}
+
+export function addFile(files) {
+  return {
+    type: ADD_FILE,
+    files
+  }
+}
+
+export function deleteFile(index) {
+  return {
+    type: DELETE_FILE,
+    index
+  }
+}
+
+export function renameFile(index, name) {
+  return {
+    type: RENAME_FILE,
+    index,
+    name
   }
 }
 

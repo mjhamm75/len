@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { addFile, deleteFile, renameFile } from '../actions/Actions';
 
 import Dropzone from 'react-dropzone';
 
@@ -7,24 +8,16 @@ class Upload extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      files: []
+      index: -1,
+      rename: false
     }
   }
-
   updateFileName(key, event) {
-    let files = this.state.files;
-    files[key].rename = event.currentTarget.value;
-    this.setState({
-      files
-    })
+    this.props.dispatch(renameFile(key, event.currentTarget.value))
   }
 
   deleteFile(key) {
-    let files = this.state.files;
-    files.splice(key, 1);
-    this.setState({
-      files
-    })
+    this.props.dispatch(deleteFile(key));
   }
 
   renderFiles(files) {
@@ -32,15 +25,15 @@ class Upload extends Component {
       return (
         <div key={index}>
           <div>
-            {this.state.renameTitle ?
+            {this.state.renameTitle && this.state.index === index ?
               <input
-                onBlur={() => this.setState({renameTitle: false})}
+                onBlur={() => this.setState({renameTitle: false, index: -1})}
                 onChange={this.updateFileName.bind(this, index)}
                 value={file.rename || file.name}
               />
               :
               <h4
-                onClick={() => this.setState({renameTitle: true})}
+                onClick={() => this.setState({renameTitle: true, index: index})}
               >{file.rename || file.name}</h4>
             }
             <div
@@ -69,7 +62,7 @@ class Upload extends Component {
   }
 
 	render() {
-    let filesDOM = this.renderFiles(this.state.files);
+    let filesDOM = this.renderFiles(this.props.files);
     return (
       <div>
           <div>
@@ -85,15 +78,13 @@ class Upload extends Component {
   }
 
   onDrop(files) {
-    let savedFiles = this.state.files.concat(files)
-    this.setState({
-      files: savedFiles
-    });
+    this.props.dispatch(addFile(files));
   }
 }
 
 function mapStateToProps(state) {
   return {
+    files: state.files
   }
 }
 
